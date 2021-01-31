@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
-import Home from './shared/pages/Home';
+import Home from './Home';
 import SponsorHome from './sponsors/pages/sponsorHome';
 
 import 'antd/dist/antd.css';
