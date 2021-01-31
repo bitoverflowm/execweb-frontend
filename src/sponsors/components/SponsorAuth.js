@@ -13,9 +13,10 @@ class SponsorAuth extends React.Component{
         return(
             <React.Fragment>
                 <h2>IntroEQ</h2>
-                <p>Let us know who your target clients are and sponsor only relevant to you round tables.</p>
-                <p>We need to verify yout professional identity.</p>
-                <Button type="primary" onClick={() => message.success('Registration complete!')}>Apply by LinkedIn</Button>
+                <p>Let's start by getting to know each other</p>
+                <p>We care deeply about our memeber's experience and privacy.</p>
+                <p>As part of this, we verify every member's professional identity:</p>
+                <Button type="primary" onClick={() => message.success('Registration complete!')}>Connect to LinkedIn</Button>
                 <DatePicker onChange={onChange} />
             </React.Fragment>
         );

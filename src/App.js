@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import Home from './shared/pages/Home';
-import SponsorRequest from './sponsors/components/SponsorRequest';
+import SponsorHome from './sponsors/pages/sponsorHome';
 
 import 'antd/dist/antd.css';
 
@@ -12,8 +12,8 @@ const App = () => {
               <Route path="/" exact>
                 <Home />
               </Route>
-              <Route path="/sponsorRequest/" exact>
-                <SponsorRequest />
+              <Route path="/sponsorHome/" exact>
+                <SponsorHome />
               </Route>
               <Redirect to="/" />
             </Switch>

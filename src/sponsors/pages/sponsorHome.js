@@ -9,4 +9,4 @@ const SponsorSignup = () => {
             </div>
 };
 
-export default SponsorSignup;
+export default SponsorSignup; 

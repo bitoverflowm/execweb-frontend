@@ -12,7 +12,7 @@ class Home extends React.Component{
         return(
             <React.Fragment>
                 <h2>Welcome to ExecWeb</h2>
-                <Button type="primary" onClick={() => this.nextPath('/sponsorRequest/')}>Apply to Sponsor</Button>
+                <Button type="primary" onClick={() => this.nextPath('/sponsorHome/')}>Apply to Sponsor</Button>
             </React.Fragment>
         );
     }   
