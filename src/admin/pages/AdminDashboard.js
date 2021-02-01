@@ -5,6 +5,7 @@ import SponsorshipRequests from '../components/SponsorshipRequests';
 
 
 const AdminDashboard = () => {    
+    //TODO: fetch live data
     const DUMMY_SPONSOR_SUBMISSION = [
         {
         'id' : 's1',

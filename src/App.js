@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import Home from './Home';
 import SponsorHome from './sponsors/pages/sponsorHome';
 import AdminDashboard from './admin/pages/AdminDashboard';
+import MainNavigation from './shared/components/Navigation/MainNavigation';
 
 import 'antd/dist/antd.css';
 
 const App = () => {
   return <Router>
+            <MainNavigation />
             <Switch>
               <Route path="/" exact>
                 <Home />
