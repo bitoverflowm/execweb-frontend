@@ -1,3 +1,27 @@
+# Folder Structure
+
+- admin
+  |-components
+    |- SponsorshipRequest.js  //list of all sponsorship request
+    |- EventList.js           //list of all events and their details
+    |- UserList.js            //list of all users in sustem
+  |- pages
+    |-adminDashboard.js       //collection of admin components for ExecWeb administratio
+-shared
+  |-components
+  |-pages
+-sponsors
+  |-components
+    |- SponsorAuth.js         // Sponsor Authentication and registration
+    |- SponsorRequest.js      // Sponsorship Request page, the process by which sponsors request event sponsorship 
+  |-pages
+    |-sponsorHome.js          // Sponsor Home
+- App.js                      // routing
+- Home.js                     // Landing page/ Home
+- index.css
+- index.js                    // root
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
