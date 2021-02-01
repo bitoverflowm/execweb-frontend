@@ -12,10 +12,13 @@ const NavLinks = props => {
                 <NavLink to ="/SponsorRequest" exact> SPONSOR AN EVENT</NavLink>
             </Menu.Item>
             <Menu.Item key="2">
-                <NavLink to ="/"> Dashboard</NavLink>
+                <NavLink to ="/u1/SponsorHome"> Dashboard</NavLink>
             </Menu.Item>
             <Menu.Item key="3">
-                <NavLink to ="/"> Register </NavLink>
+                <NavLink to ="/auth"> Register </NavLink>
+            </Menu.Item>
+            <Menu.Item key="4">
+                <NavLink to ="/adminDashboard"> Admin Dashboard </NavLink>
             </Menu.Item>
         </Menu>
     )

@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 
 import { Empty, Card, Avatar } from 'antd';
+import { PlusSquareOutlined, WarningOutlined, CheckSquareOutlined} from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
 const { Meta } = Card;
@@ -18,14 +19,21 @@ const SponsorshipRequests = props => {
     //TODO: more featues on adding appropriate Sponsor Card data and details here:
     // https://codesandbox.io/s/9tm67?file=/index.js
     return(
-        <ul>
+        <ul className="sponsorship-request-list">
             {props.sponsorshipRequests.map( request =>(
                     <Card key = {request.id} 
-                          style={{ width: '75%' , alignContent: 'center', marginTop: 16 }}>
+                          style={{ width: '75%' , alignContent: 'center', marginTop: 16 }}
+                          actions={[
+                            <Link to={`/${request.id}/SponsorshipRequestDetails`}>
+                                <div><PlusSquareOutlined key="Vew Details"/> View Details</div>
+                            </Link>,
+                            <div><WarningOutlined key="Reject"/> Reject </div>,
+                            <div><CheckSquareOutlined key="Accept"/>Accept</div>
+                          ]}>
                             <Meta
                             avatar={<Avatar src={request.avatar} />}
                             title={request.title}
-                            description={"created by " + request.sponsor_name + 'for ' + request.sponsor_business}
+                            description={"created by " + request.sponsor_name + "for " + request.sponsor_business}
                             />
                     </Card>
                 ))}

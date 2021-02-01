@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff; 
+  margin-top: 64; 
+}
+
+.site-layout-header {
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header-child{
+  height: inherit;
+  display: inline-block;
+  margin-left: 4px;
+}
