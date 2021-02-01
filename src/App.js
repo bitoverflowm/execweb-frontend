@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 
 import Home from './Home';
 import SponsorHome from './sponsors/pages/sponsorHome';
+import AdminDashboard from './admin/pages/AdminDashboard';
 
 import 'antd/dist/antd.css';
 
@@ -14,6 +15,9 @@ const App = () => {
               </Route>
               <Route path="/sponsorHome/" exact>
                 <SponsorHome />
+              </Route>
+              <Route path="/adminDashboard/" exact>
+                <AdminDashboard />
               </Route>
               <Redirect to="/" />
             </Switch>
