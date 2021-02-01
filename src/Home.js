@@ -1,8 +1,9 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Button } from 'antd';
 
+/*
 class Home extends React.Component{
     nextPath(path){
         this.props.history.push(path);
@@ -17,20 +18,18 @@ class Home extends React.Component{
         );
     }   
 }
+*/
 
-/*
+
 const Home = () => {
-
-    const nextPath = (path) => {
-        props.history.push(path);
-    };
-
     return(
         <React.Fragment>
             <h2>Welcome to ExecWeb</h2>
-            <Button type="primary" onClick={() => nextPath('/sponsorSignup/')}>Apply to Sponsor</Button>
+            <Link to={`/sponsorHome/`}>
+                <Button type="primary">Apply to Sponsor</Button>
+            </Link>
         </React.Fragment>
         );
-};*/
+};
 
-export default withRouter(Home);
+export default Home;
