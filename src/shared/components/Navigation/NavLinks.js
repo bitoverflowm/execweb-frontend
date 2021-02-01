@@ -9,7 +9,7 @@ const NavLinks = props => {
     return (
         <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']}>
             <Menu.Item key="1">
-                <NavLink to ="/"> SPONSOR AN EVENT</NavLink>
+                <NavLink to ="/SponsorRequest" exact> SPONSOR AN EVENT</NavLink>
             </Menu.Item>
             <Menu.Item key="2">
                 <NavLink to ="/"> Dashboard</NavLink>

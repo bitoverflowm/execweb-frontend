@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 
 import Home from './Home';
 import SponsorHome from './sponsors/pages/sponsorHome';
+import SponsorRequest from './sponsors/components/SponsorRequest';
 import AdminDashboard from './admin/pages/AdminDashboard';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 
@@ -28,6 +29,9 @@ const App = () => {
                   </Route>
                   <Route path="/sponsorHome/" exact>
                     <SponsorHome />
+                  </Route>
+                  <Route path="/sponsorRequest/" exact>
+                    <SponsorRequest />
                   </Route>
                   <Route path="/adminDashboard/" exact>
                     <AdminDashboard />
