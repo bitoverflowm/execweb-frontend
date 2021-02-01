@@ -6,23 +6,36 @@ import SponsorHome from './sponsors/pages/sponsorHome';
 import AdminDashboard from './admin/pages/AdminDashboard';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 
+import { Layout } from 'antd';
+
 import 'antd/dist/antd.css';
+
+const { Content, Header } = Layout;
+
+
 
 const App = () => {
   return <Router>
-            <MainNavigation />
-            <Switch>
-              <Route path="/" exact>
-                <Home />
-              </Route>
-              <Route path="/sponsorHome/" exact>
-                <SponsorHome />
-              </Route>
-              <Route path="/adminDashboard/" exact>
-                <AdminDashboard />
-              </Route>
-              <Redirect to="/" />
-            </Switch>
+            <Layout className = "layout">
+              <Header>
+                <MainNavigation />
+              </Header>
+              
+              <Content>
+                <Switch>
+                  <Route path="/" exact>
+                    <Home />
+                  </Route>
+                  <Route path="/sponsorHome/" exact>
+                    <SponsorHome />
+                  </Route>
+                  <Route path="/adminDashboard/" exact>
+                    <AdminDashboard />
+                  </Route>
+                  <Redirect to="/" />
+                </Switch>
+              </Content>
+            </Layout>
           </Router>;
 };
 
