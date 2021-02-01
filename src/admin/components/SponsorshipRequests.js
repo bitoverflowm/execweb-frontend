@@ -23,19 +23,28 @@ const DUMMY_SPONSOR_SUBMISSION = [
 
 const SponsorshipRequests = props => {
     if (props.sponsorshipRequests.length === 0){
-        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+        return (
+            <div className="center">
+                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+            </div>
+        )
     }
-    else{
-        <Card style={{ width: 300, marginTop: 16 }}>
-          <Meta
-            avatar={
-              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-            }
-            title="Card title"
-            description="This is the description"
-          />
-        </Card>
-    }
+    //TODO: more featues on adding appropriate Sponsor Card data and details here:
+    // https://codesandbox.io/s/9tm67?file=/index.js
+    return(
+        <ul>
+            {props.sponsorshipRequests.map( request =>(
+                    <Card key = {request.id} 
+                          style={{ width: 300, marginTop: 16 }}>
+                            <Meta
+                            avatar={<Avatar src={Request.avatar} />}
+                            title="Card title"
+                            description="This is the description"
+                            />
+                    </Card>
+                ))}
+        </ul>
+    );
 };
 
 export default SponsorshipRequests;
