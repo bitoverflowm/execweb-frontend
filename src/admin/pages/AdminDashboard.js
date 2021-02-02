@@ -32,7 +32,7 @@ const AdminDashboard = () => {
         'sponsor_business' : 'Bobs Burger',
         'linked_in_url' : 'https://linkedin/SterlingArcher',
         'avatar' : 'https://pbs.twimg.com/profile_images/473693408649674753/Fjo74UD2.png',
-        'title' : 'Explorations into SpyCraft',
+        'title' : 'How to be the worlds greatest spy',
         'target_job_titles' : ['CIO', 'CISO'],        
         'target_industry' : ['Financial Services', 'CyberSecurity'],
         'target_client_list' : 'test.csv',
