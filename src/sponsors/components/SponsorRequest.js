@@ -3,6 +3,9 @@ import React from 'react';
 import { Steps, Button, message } from 'antd';
 
 import SponsorAuth from './SponsorAuth';
+import SponsorTargetRole from './SponsorTargetRole';
+
+import '../../index.css';
 
 const { Step } = Steps;
 
@@ -13,7 +16,7 @@ const steps = [
     },
     {
         title: 'Step 2',
-        content: 'First-content'
+        content: <SponsorTargetRole />
     },
     {
         title: 'Step 3',
@@ -69,33 +72,36 @@ const SponsorRequest = () => {
     };
 
     return (
-        <React.Fragment>
+        <div className = "site-layout-content">
             <Steps current={current}>
                 {steps.map(item => (
                     <Step key={item.title} title={item.title} hidden/>
                 ))}
             </Steps>
             
-            <div className="steps-content">{steps[current].content}</div>
+            <div className="response-field">
+                {steps[current].content}
+            </div>
             
-            <div className="steps-action">
-                {current < steps.length - 1 && (
+            <div className="response-action">
+            {current < steps.length - 1 && (
                     <Button type="primary" onClick={() => next()}>
                         Next
                     </Button>
                 )}
+                {current > 0 && (
+                    <Button onClick={() => prev()}>
+                        Previous
+                    </Button>
+                )}
+                
                 {current === steps.length - 1 && (
                     <Button type="primary" onClick={() => message.success('Processing complete!')}>
                         Done
                     </Button>
-                )}
-                {current > 0 && (
-                    <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-                        Previous
-                    </Button>
-                )}
+                )}                
             </div>
-        </React.Fragment>
+        </div>
     )
 };
 

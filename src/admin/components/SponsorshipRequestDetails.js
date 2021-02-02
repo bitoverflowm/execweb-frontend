@@ -42,9 +42,7 @@ const DUMMY_SPONSOR_SUBMISSION = [
 
 const SponsorshipRequestDetails = props => {
     const sponsorRequestId = useParams().sid;
-    const sponsorRequestDetails = DUMMY_SPONSOR_SUBMISSION.find(submission => submission.id === sponsorRequestId);
-
-    
+    const sponsorRequestDetails = DUMMY_SPONSOR_SUBMISSION.find(submission => submission.id === sponsorRequestId);    
 
     return <div>{sponsorRequestDetails.id}</div>
 };

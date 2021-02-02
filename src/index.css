@@ -12,11 +12,31 @@ code {
     monospace;
 }
 
+.logo {
+  height: 50px;
+  padding: 50px 50px 100px 50px;
+}
+
+.jumbo-image{
+  overflow: hidden;
+  padding-top: 50px;
+}
+
+.jumbo-image img {
+  display: block;
+  padding-left: 10%;
+  object-fit : cover;
+  position: relative;
+}
+
 .site-layout-content {
   min-height: 280px;
   padding: 24px;
   background: #fff; 
   margin-top: 64; 
+  width: '75%'; 
+  align-content: 'center'; 
+  margin-top: 16; 
 }
 
 .site-layout-header {
@@ -25,8 +45,34 @@ code {
   overflow: hidden;
 }
 
-.header-child{
+.header-child {
   height: inherit;
   display: inline-block;
   margin-left: 4px;
 }
+
+.response-field {
+  width: 75%;
+  min-width: 550px;
+}
+
+.response-action {
+  padding-top: 10px;
+  margin-right: 18%;
+}
+
+.response-action Button{
+  margin: 10px;
+  float: right;  
+}
+
+.check-box {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #EFF0F1;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+}
+
+
