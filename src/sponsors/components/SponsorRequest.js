@@ -4,6 +4,8 @@ import { Steps, Button, message } from 'antd';
 
 import SponsorAuth from './SponsorAuth';
 import SponsorTargetRole from './SponsorTargetRole';
+import SponsorTargetIndustry from './SponsorTargetIndustry';
+import SponsorTargetHeadCount from './SponsorTargetHeadCount';
 
 import '../../index.css';
 
@@ -20,11 +22,11 @@ const steps = [
     },
     {
         title: 'Step 3',
-        content: 'First-content'
+        content: <SponsorTargetIndustry />
     },
     {
         title: 'Step 4',
-        content: 'First-content'
+        content: <SponsorTargetHeadCount />
     },
     {
         title: 'Step 5',
