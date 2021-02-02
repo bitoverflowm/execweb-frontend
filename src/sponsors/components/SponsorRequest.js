@@ -6,6 +6,8 @@ import SponsorAuth from './SponsorAuth';
 import SponsorTargetRole from './SponsorTargetRole';
 import SponsorTargetIndustry from './SponsorTargetIndustry';
 import SponsorTargetHeadCount from './SponsorTargetHeadCount';
+import SponsorTargetRegion from './SponsorTargetRegion';
+import SponsorTargetUsers from './SponsorTargetUsers';
 
 import '../../index.css';
 
@@ -30,11 +32,11 @@ const steps = [
     },
     {
         title: 'Step 5',
-        content: 'First-content'
+        content: <SponsorTargetRegion />
     },
     {
         title: 'Step 6',
-        content: 'First-content'
+        content: <SponsorTargetUsers />
     },
     {
         title: 'Step 7',

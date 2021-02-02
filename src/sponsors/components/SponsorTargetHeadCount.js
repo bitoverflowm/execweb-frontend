@@ -8,7 +8,7 @@ import { faUser, faUserFriends, faUsers, faHome, faLandmark, faBuilding } from '
 import '../../index.css';
 
 const SponsorTargetHeadCount = props => {
-    const DUMMY_INDUSTRIES = [
+    const DUMMY_HEAD_COUNT = [
         {
             id: '1',
             title: '0 - 50',
@@ -45,7 +45,7 @@ const SponsorTargetHeadCount = props => {
         <div className = 'response-field'>
             <p>What company sizes do you want to work with?</p>
             <Row >
-                {DUMMY_INDUSTRIES.map( title => (
+                {DUMMY_HEAD_COUNT.map( title => (
                     <Col span={10}>
                         <div className="check-box">
                             <Checkbox value={title.id}>
