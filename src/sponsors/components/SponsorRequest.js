@@ -8,6 +8,9 @@ import SponsorTargetIndustry from './SponsorTargetIndustry';
 import SponsorTargetHeadCount from './SponsorTargetHeadCount';
 import SponsorTargetRegion from './SponsorTargetRegion';
 import SponsorTargetUsers from './SponsorTargetUsers';
+import SponsorTargetDate from './SponsorTargetDate';
+import SponsorTargetTopic from './SponsorTargetTopic';
+import SponsorTargetHost from './SponsorTargetHost';
 
 import '../../index.css';
 
@@ -40,27 +43,15 @@ const steps = [
     },
     {
         title: 'Step 7',
-        content: 'First-content'
+        content: <SponsorTargetDate />
     },
     {
         title: 'Step 8',
-        content: 'First-content'
+        content: <SponsorTargetTopic/>
     },
     {
         title: 'Step 9',
-        content: 'First-content'
-    },
-    {
-        title: 'Step 10',
-        content: 'First-content'
-    },
-    {
-        title: 'Step 11',
-        content: 'First-content'
-    },
-    {
-        title: 'Step 12',
-        content: 'First-content'
+        content: <SponsorTargetHost />
     },
 ];
 

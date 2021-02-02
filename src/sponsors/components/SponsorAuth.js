@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Button, message } from 'antd';
-import { DatePicker, Space } from 'antd';
 
 
 const SponsorAuth = props => {

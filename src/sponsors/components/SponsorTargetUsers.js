@@ -2,9 +2,7 @@ import React from 'react';
 
 import '../../index.css';
 
-import { Checkbox, Row, Col, Typography, Avatar, Card } from 'antd';
-
-const { Meta } = Card;
+import { Checkbox, Row, Col, Typography, Avatar } from 'antd';
 
 const { Text } = Typography;
 
