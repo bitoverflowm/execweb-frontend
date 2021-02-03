@@ -43,7 +43,7 @@ const SponsorTargetUsers = props => {
                 <Text keyboard> Select who you would like to attend.</Text>
             </p>
                 {DUMMY_USER_DATA.map( user => (
-                    <Row>
+                    <Row key={user.id}>
                         <Col span={24} className="check-box">
                             <Checkbox value={user.id}>
                                 <Avatar src={user.avatar}/>                                

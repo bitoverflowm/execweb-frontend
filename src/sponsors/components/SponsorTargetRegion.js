@@ -44,7 +44,7 @@ const SponsorTargetRegion = props => {
             <p>What company sizes do you want to work with?</p>
             <Row >
                 {DUMMY_REGIONS.map( title => (
-                    <Col span={10}>
+                    <Col span={10} key={title.id}>
                         <div className="check-box">
                             <Checkbox value={title.id}>
                                 {title.icon} {title.title }

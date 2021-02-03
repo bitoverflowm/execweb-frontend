@@ -33,7 +33,7 @@ const SponsorTargetRole = props => {
             <p>What are the job titles you are looking to connect with?</p>
             <Row >
                 {DUMMY_JOB_TITLE.map( title => (
-                    <Col span={10}>
+                    <Col span={10} key={title.id}>
                         <div className="check-box">
                             <Checkbox value={title.id}>
                                 {title.title}

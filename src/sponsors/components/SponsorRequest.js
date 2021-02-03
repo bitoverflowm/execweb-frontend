@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Steps, Button, message } from 'antd';
+import { Form, Steps, Button, message } from 'antd';
 
 import SponsorAuth from './SponsorAuth';
 import SponsorTargetRole from './SponsorTargetRole';
@@ -16,61 +16,50 @@ import '../../index.css';
 
 const { Step } = Steps;
 
-const steps = [
-    {
-        title: 'Step 1',
-        content: <SponsorAuth />
-    },
-    {
-        title: 'Step 2',
-        content: <SponsorTargetRole />
-    },
-    {
-        title: 'Step 3',
-        content: <SponsorTargetIndustry />
-    },
-    {
-        title: 'Step 4',
-        content: <SponsorTargetHeadCount />
-    },
-    {
-        title: 'Step 5',
-        content: <SponsorTargetRegion />
-    },
-    {
-        title: 'Step 6',
-        content: <SponsorTargetUsers />
-    },
-    {
-        title: 'Step 7',
-        content: <SponsorTargetDate />
-    },
-    {
-        title: 'Step 8',
-        content: <SponsorTargetTopic/>
-    },
-    {
-        title: 'Step 9',
-        content: <SponsorTargetHost />
-    },
-];
+
+
+
 
 const SponsorRequest = () => {
     const [current, setCurrent] = React.useState(0);
+    const [linkeIn, setLinkedIn] = React.useState(0);
+
+
+    const handleClick = () => {
+        //this.setState({ linkedInVerified : true});
+        setLinkedIn({'linkedInVerified': true});
+    };
+
+    const steps = [
+        { title: 'Step 1', content: <SponsorAuth handleClick={handleClick}/> },
+        { title: 'Step 2', content: <SponsorTargetRole /> },
+        { title: 'Step 3', content: <SponsorTargetIndustry /> },
+        { title: 'Step 4', content: <SponsorTargetHeadCount /> },
+        { title: 'Step 5', content: <SponsorTargetRegion />},
+        { title: 'Step 6', content: <SponsorTargetUsers />},
+        { title: 'Step 7', content: <SponsorTargetDate />},
+        { title: 'Step 8', content: <SponsorTargetTopic/>},
+        { title: 'Step 9', content: <SponsorTargetHost />},
+    ];
 
     const next = () => {
         setCurrent(current + 1);
+        console.log(linkeIn);
     };
 
     const prev = () => {
         setCurrent(current - 1);
     };
 
+    const onFinish = (values) => {
+        console.log('Success:', values);
+      };
+
     return (
-        <div className = "site-layout-content">
+        <Form className = "site-layout-content" onFinish={onFinish}>
             <Steps current={current}>
                 {steps.map(item => (
-                    <Step key={item.title} title={item.title} hidden/>
+                    <Step key={item.title} hidden />
                 ))}
             </Steps>
             
@@ -79,7 +68,7 @@ const SponsorRequest = () => {
             </div>
             
             <div className="response-action">
-            {current < steps.length - 1 && (
+                {current < steps.length - 1 && (
                     <Button type="primary" onClick={() => next()}>
                         Next
                     </Button>
@@ -88,15 +77,14 @@ const SponsorRequest = () => {
                     <Button onClick={() => prev()}>
                         Previous
                     </Button>
-                )}
-                
+                )}                
                 {current === steps.length - 1 && (
-                    <Button type="primary" onClick={() => message.success('Processing complete!')}>
+                    <Button type="primary" htmlType="submit" onClick={() => message.success('Processing complete!')}>
                         Done
                     </Button>
-                )}                
+                )}
             </div>
-        </div>
+        </Form>
     )
 };
 

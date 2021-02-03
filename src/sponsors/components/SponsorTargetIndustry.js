@@ -35,7 +35,7 @@ const SponsorTargetIndustry = props => {
             <p>What industry are you targeting?</p>
             <Row >
                 {DUMMY_INDUSTRIES.map( title => (
-                    <Col span={10}>
+                    <Col span={10} key={title.id}>
                         <div className="check-box">
                             <Checkbox value={title.id}>
                                 {title.icon} {title.title }
