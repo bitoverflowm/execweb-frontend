@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SponsorRequest from '../components/SponsorRequest';
-import logo from '../../shared/assets/blackOnTransparentSmallTransparent.png';
+import logo from '../../shared/assets/logo2.png';
 import jumbo_image1 from '../../shared/assets/jumbo-image1.png';
 
 import { Layout, Row, Col } from 'antd';

@@ -16,18 +16,15 @@ import '../../index.css';
 
 const { Step } = Steps;
 
-
-
-
-
 const SponsorRequest = () => {
     const [current, setCurrent] = React.useState(0);
     const [linkeIn, setLinkedIn] = React.useState(0);
 
 
-    const handleClick = () => {
+    const handleClick = ( value ) => {
         //this.setState({ linkedInVerified : true});
-        setLinkedIn({'linkedInVerified': true});
+        setLinkedIn({'linkedInVerified': value });
+        console.log(linkeIn);
     };
 
     const steps = [
