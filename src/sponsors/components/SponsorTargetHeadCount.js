@@ -41,19 +41,24 @@ const SponsorTargetHeadCount = props => {
         }
     ]; 
 
+    const onChange = (checkedValues) => {
+        console.log('checked=', checkedValues);
+        props.handleHeadCountSelection(checkedValues);
+    }
+
     return(
         <div className = 'response-field'>
             <p>What company sizes do you want to work with?</p>
             <Row >
-                {DUMMY_HEAD_COUNT.map( title => (
-                    <Col span={10} key={title.id}>
-                        <div className="check-box">
-                            <Checkbox value={title.id}>
-                                {title.icon} {title.title }
-                            </Checkbox>
-                        </div>
-                    </Col>
-                ))}
+                <Checkbox.Group onChange={onChange} style={{width : '100%'}}>
+                    {DUMMY_HEAD_COUNT.map( title => (
+                        <Col span={10} key={title.id} className="check-box">
+                                <Checkbox value={title.title}>
+                                    {title.icon} {title.title }
+                                </Checkbox>
+                        </Col>
+                    ))}
+                </Checkbox.Group>
             </Row>
         </div>
     );   

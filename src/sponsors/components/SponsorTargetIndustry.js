@@ -30,10 +30,33 @@ const SponsorTargetIndustry = props => {
         }
     ]; 
 
+    const onChange = (checkedValues) => {
+        console.log('checked=', checkedValues);
+        props.handleIndustrySelection(checkedValues);
+    }
+
     return(
         <div className = 'response-field'>
             <p>What industry are you targeting?</p>
             <Row >
+                <Checkbox.Group onChange={onChange} style={{width : '100%'}}>
+                    {DUMMY_INDUSTRIES.map( title => (
+                        <Col span={10} key={title.id} className="check-box">
+                            <Checkbox value={title.title}>
+                                {title.icon}{title.title}
+                            </Checkbox>
+                        </Col>
+                        ))}
+                </Checkbox.Group>
+            </Row>
+        </div>
+    );   
+}
+
+export default SponsorTargetIndustry;
+
+
+/*
                 {DUMMY_INDUSTRIES.map( title => (
                     <Col span={10} key={title.id}>
                         <div className="check-box">
@@ -42,10 +65,4 @@ const SponsorTargetIndustry = props => {
                             </Checkbox>
                         </div>
                     </Col>
-                ))}
-            </Row>
-        </div>
-    );   
-}
-
-export default SponsorTargetIndustry;
+                ))}*/

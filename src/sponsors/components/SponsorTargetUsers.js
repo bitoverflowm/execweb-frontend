@@ -35,6 +35,11 @@ const SponsorTargetUsers = props => {
         }
     ]; 
 
+    const onChange = (checkedValues) => {
+        console.log('checked=', checkedValues);
+        props.handleUserSelection(checkedValues);
+    }
+
     return(
         <div className = 'response-field'>
             <p>
@@ -42,17 +47,20 @@ const SponsorTargetUsers = props => {
                 <br></br>
                 <Text keyboard> Select who you would like to attend.</Text>
             </p>
-                {DUMMY_USER_DATA.map( user => (
-                    <Row key={user.id}>
-                        <Col span={24} className="check-box">
-                            <Checkbox value={user.id}>
-                                <Avatar src={user.avatar}/>                                
-                                <Text strong>{" " + user.first_name + " " + user.last_name}</Text> 
-                                <Text>{" " + user.position + " @" + user.company}</Text>
-                            </Checkbox>
-                        </Col>
+                
+                    <Row>
+                        <Checkbox.Group onChange={onChange} style={{width : '100%'}}>
+                            {DUMMY_USER_DATA.map( user => (
+                                <Col span={24} key={user.id} className="check-box">
+                                    <Checkbox value={user.id}>
+                                        <Avatar src={user.avatar}/>                                
+                                        <Text strong>{" " + user.first_name + " " + user.last_name}</Text> 
+                                        <Text>{" " + user.position + " @" + user.company}</Text>
+                                    </Checkbox>
+                                </Col>
+                            ))}
+                        </Checkbox.Group>
                     </Row>
-                ))}
         </div>
     );   
 }
