@@ -10,7 +10,7 @@ const SponsorAuth = props => {
             <p>We care deeply about our memeber's experience and privacy.</p>
             <p>As part of this, we verify every member's professional identity.</p>
             <p>Connect your LinkedIn to begin!</p>
-            <Button type="primary" onClick={() => props.handleClick("Hello there!")}> Connect to LinkedIn</Button>
+            <Button type="primary" onClick={() => props.handleLinkedInVerification("Hello there!")}> Connect to LinkedIn</Button>
         </div>
     );
 };

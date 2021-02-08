@@ -26,24 +26,47 @@ const SponsorTargetRole = props => {
             id: 'j5',
             title: 'Chief Scientist'
         }
-    ]; 
+    ];
+
+    const onChange = (checkedValues) => {
+        console.log('checked=', checkedValues);
+        props.handleRoleSelection(checkedValues);
+    }
 
     return(
         <div className = 'response-field'>
             <p>What are the job titles you are looking to connect with?</p>
-            <Row >
-                {DUMMY_JOB_TITLE.map( title => (
-                    <Col span={10} key={title.id}>
-                        <div className="check-box">
-                            <Checkbox value={title.id}>
-                                {title.title}
-                            </Checkbox>
-                        </div>
-                    </Col>
-                ))}
+
+            <Row>
+                <Checkbox.Group onChange={onChange} style={{width : '100%'}}>
+                        {DUMMY_JOB_TITLE.map( title => (
+                            <Col span={10} key={title.id} className="check-box">
+                                <Checkbox value={title.title}>
+                                    {title.title}
+                                </Checkbox>
+                            </Col>
+                        ))}
+                </Checkbox.Group>
             </Row>
+            
         </div>
     );   
 }
 
 export default SponsorTargetRole;
+
+
+/*
+<Row>
+                        {DUMMY_JOB_TITLE.map( title => (
+                            <Col span={10} key={title.id}>
+                                <div className="check-box">
+                                    <Checkbox value={title.title} onChange={test}>
+                                        {title.title}
+                                    </Checkbox>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+
+*/
