@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useReducer } from 'react';
 
 import { Form, Steps, Button, message } from 'antd';
 
@@ -18,17 +18,17 @@ const { Step } = Steps;
 
 const SponsorRequest = () => {
 
-    const [current, setCurrent] = React.useState(0);    
-    const [linkeIn, setLinkedIn] = React.useState();
-    const [roles, setRoles] = React.useState();
-    const [industries, setIndustries] = React.useState();
-    const [headCount, setHeadCount] = React.useState();
-    const [regions, setRegions] = React.useState();
-    const [users, setUsers] = React.useState();
-    const [dates, setDates] = React.useState();
-    const [topics, setTopics] = React.useState();
-    const [host, setHost] = React.useState();
-    const [summary, setSummary] = React.useState();
+    const [current, setCurrent] = useState(0);    
+    const [linkeIn, setLinkedIn] = useState();
+    const [roles, setRoles] = useState();
+    const [industries, setIndustries] = useState();
+    const [headCount, setHeadCount] = useState();
+    const [regions, setRegions] = useState();
+    const [users, setUsers] = useState();
+    const [dates, setDates] = useState();
+    const [topics, setTopics] = useState();
+    const [host, setHost] = useState();
+    const [summary, setSummary] = useState();
 
 
     const handleLinkedInVerification = ( value ) => {
