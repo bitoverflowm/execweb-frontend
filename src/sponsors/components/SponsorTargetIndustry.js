@@ -68,7 +68,6 @@ const SponsorTargetIndustry = props => {
     return(
         <div className = 'response-field'>
             <p>What industry are you targeting?</p>
-
             <Row >
                 <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
                     {DUMMY_INDUSTRIES.map( title => (

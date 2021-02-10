@@ -41,6 +41,8 @@ const formReducer = (state, action) => {
 
 const SponsorRequest = () => {
 
+    const [current, setCurrent] = useState(0);
+
     const [formState, dispatch] = useReducer(formReducer, {
             inputs: {
                 username: { value: '', isValid: false},
@@ -51,38 +53,7 @@ const SponsorRequest = () => {
     const formUpdateHandler = useCallback(( id, value, isValid ) => { 
         console.log(`formUpdateHandler id: ${id} value: ${value} isValid: ${isValid}`);
         dispatch({type: 'SELECT', value: value, inputId: id, isValid: isValid});
-        console.log('action dispatched SponsorRequest values: ', formState);
     }, []);
-
-    const [current, setCurrent] = useState(0);
-    const [headCount, setHeadCount] = useState();
-    const [regions, setRegions] = useState();
-    const [users, setUsers] = useState();
-    const [dates, setDates] = useState();
-    const [topics, setTopics] = useState();
-    const [host, setHost] = useState();
-    const [summary, setSummary] = useState();
-    
- 
-    const handleHeadCountSelection = ( values ) => {
-        setHeadCount(values);
-    };
-    const handleRegionSelection = ( values ) => {
-        setRegions(values);
-    };
-    const handleUserSelection = ( values ) => {
-        setUsers(values);
-    };
-    const handleDateSelection = ( values ) => {
-        setDates(values);
-    };
-    const handleTopicSelection = ( values ) => {
-        setTopics(values);
-    };
-    const handleHostSelection = ( values ) => {
-        setHost(values);
-    };
-    
 
     const steps = [
         { 
@@ -109,12 +80,54 @@ const SponsorRequest = () => {
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.industries}/> 
         },
-        { title: 'Step 4', content: <SponsorTargetHeadCount handleHeadCountSelection = {handleHeadCountSelection}/> },
-        { title: 'Step 5', content: <SponsorTargetRegion handleRegionSelection = {handleRegionSelection}/>},
-        { title: 'Step 6', content: <SponsorTargetUsers handleUserSelection = {handleUserSelection}/>},
-        { title: 'Step 7', content: <SponsorTargetDate handleDateSelection = {handleDateSelection}/>},
-        { title: 'Step 8', content: <SponsorTargetTopic handleTopicSelection = {handleTopicSelection}/>},
-        { title: 'Step 9', content: <SponsorTargetHost handleHostSelection = {handleHostSelection}/>},
+        { 
+            title: 'Step 4', 
+            content: 
+            <SponsorTargetHeadCount 
+                id="headCounts"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.headCounts}/> 
+        },
+        { 
+            title: 'Step 5', 
+            content: 
+            <SponsorTargetRegion
+                id="regions"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.regions}/>
+        },
+        { 
+            title: 'Step 6', 
+            content: 
+            <SponsorTargetUsers 
+                id="users"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.users}/>
+        },
+        { 
+            title: 'Step 7', 
+            content: 
+            <SponsorTargetDate 
+                id="dates"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.dates}/>
+        },
+        { 
+            title: 'Step 8', 
+            content: 
+            <SponsorTargetTopic 
+                id="topic"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.topic}/>
+        },
+        { 
+            title: 'Step 9', 
+            content: 
+            <SponsorTargetHost 
+                id="host"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.host}/>
+        },
     ];
 
     const next = () => {
