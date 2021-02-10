@@ -55,7 +55,6 @@ const SponsorRequest = () => {
     }, []);
 
     const [current, setCurrent] = useState(0);
-    const [industries, setIndustries] = useState();
     const [headCount, setHeadCount] = useState();
     const [regions, setRegions] = useState();
     const [users, setUsers] = useState();
@@ -64,10 +63,7 @@ const SponsorRequest = () => {
     const [host, setHost] = useState();
     const [summary, setSummary] = useState();
     
-
-    const handleIndustrySelection = ( values ) => {
-        setIndustries(values);
-    };    
+ 
     const handleHeadCountSelection = ( values ) => {
         setHeadCount(values);
     };
@@ -105,7 +101,14 @@ const SponsorRequest = () => {
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.roles}/> 
         },
-        { title: 'Step 3', content: <SponsorTargetIndustry handleIndustrySelection = {handleIndustrySelection}/> },
+        { 
+            title: 'Step 3', 
+            content: 
+            <SponsorTargetIndustry 
+                id="industries"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.industries}/> 
+        },
         { title: 'Step 4', content: <SponsorTargetHeadCount handleHeadCountSelection = {handleHeadCountSelection}/> },
         { title: 'Step 5', content: <SponsorTargetRegion handleRegionSelection = {handleRegionSelection}/>},
         { title: 'Step 6', content: <SponsorTargetUsers handleUserSelection = {handleUserSelection}/>},

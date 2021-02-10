@@ -20,6 +20,7 @@ const inputReducer = (state, action) => {
 }
 
 const SponsorAuth = props => {
+    
     const [inputState, dispatch] = useReducer(inputReducer, {
         value: '', 
         isValid: false
@@ -33,12 +34,11 @@ const SponsorAuth = props => {
     }, [id, value, isValid, formUpdateHandler]);
 
     const clickHandler = submission => {
-        console.log('internal state submission:', submission);
+        console.log('Submitted Value', submission);
         dispatch({
             type: 'CLICK', 
             val: submission
         });
-        //props.formUpdateHandler(submission);
     }
 
     return(

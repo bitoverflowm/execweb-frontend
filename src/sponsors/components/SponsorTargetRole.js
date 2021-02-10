@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
 
 import { Checkbox, Row, Col } from 'antd';
 
@@ -27,11 +27,40 @@ const DUMMY_JOB_TITLE = [
     }
 ];
 
-const SponsorTargetRole = props => {   
+const inputReducer = (state, action) => {
+    switch (action.type) {
+        case 'CLICK':
+            return {
+                ...state,
+                value: action.val,
+                isValid: true
+            };    
+        default:
+            return state;
+    }
 
-    const onChange = (checkedValues) => {
-        console.log('checked=', checkedValues);
-        props.handleRoleSelection(checkedValues);
+}
+
+const SponsorTargetRole = props => {
+
+    const [inputState, dispatch] = useReducer(inputReducer, {
+        value: '', 
+        isValid: false
+    });
+
+    const { id, formUpdateHandler } = props;
+    const { value, isValid } = inputState;
+
+    useEffect(() => {
+        formUpdateHandler(id, value, isValid)
+    }, [id, value, isValid, formUpdateHandler]);
+
+    const clickHandler = checkedValues => {
+        console.log('Selected value', checkedValues);
+        dispatch({
+            type: 'CLICK', 
+            val: checkedValues
+        });
     }
 
     return(
@@ -39,7 +68,7 @@ const SponsorTargetRole = props => {
             <p>What are the job titles you are looking to connect with?</p>
 
             <Row>
-                <Checkbox.Group onChange={onChange} style={{width : '100%'}}>
+                <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
                         {DUMMY_JOB_TITLE.map( title => (
                             <Col span={10} key={title.id} className="check-box">
                                 <Checkbox value={title.title}>
