@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
 import moment from 'moment';
 
 import '../../index.css';
@@ -6,25 +6,52 @@ import '../../index.css';
 import { DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 
+const inputReducer = (state, action) => {
+    switch (action.type) {
+        case 'CLICK':
+            return {
+                ...state,
+                value: action.val,
+                isValid: true
+            };    
+        default:
+            return state;
+    }
+
+};
+
 const SponsorTargetDate = props => {
 
+    const [inputState, dispatch] = useReducer(inputReducer, {
+        value: '', 
+        isValid: false
+    });
 
+    const { id, formUpdateHandler } = props;
+    const { value, isValid } = inputState;
+
+    useEffect(() => {
+        formUpdateHandler(id, value, isValid)
+    }, [id, value, isValid, formUpdateHandler]);
+
+    const clickHandler = selectedDate => {
+        console.log('Selected value', selectedDate);
+        dispatch({
+            type: 'CLICK', 
+            val: selectedDate
+        });
+    };
 
     const disabledDate = (current) => {
         // Can not select days before today and today
         return current && current < moment().endOf('day');
-    };
-
-    const onChange = (selectedDate) => {
-        console.log('dates=', selectedDate);
-        props.handleDateSelection(selectedDate);
     };
     
     return(
         <div className = 'response-field'>
             <p>When would you like to host your roundtable?</p>
             <RangePicker
-                onChange={onChange}
+                onChange={clickHandler}
                 disabledDate={disabledDate}
                 showTime={{
                     hideDisabledOptions: true,
