@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
 
 import { Checkbox, Row, Col } from 'antd';
 
@@ -10,45 +10,75 @@ import south_west from '../../shared/assets/south_west.png';
 
 import '../../index.css';
 
-const SponsorTargetRegion = props => {
-    const DUMMY_REGIONS = [
-        {
-            id: '1',
-            title: 'West',
-            icon: <img src={west} alt="West" />
-        },
-        {
-            id: '2',
-            title: 'Mid-West',
-            icon: <img src={mid_west} alt="West" />
-        },
-        {
-            id: '3',
-            title: 'South-West',
-            icon: <img src={south_west} alt="West" />
-        },
-        {
-            id: '4',
-            title: 'North-East',
-            icon: <img src={north_east} alt="West" />
-        },
-        {
-            id: '5',
-            title: 'South-East',
-            icon: <img src={south_east} alt="West" />
-        }
-    ]; 
-
-    const onChange = (checkedValues) => {
-        console.log('checked=', checkedValues);
-        props.handleRegionSelection(checkedValues);
+const DUMMY_REGIONS = [
+    {
+        id: '1', 
+        title: 'West',
+        icon: <img src={west} alt="West" />
+    },
+    {
+        id: '2',
+        title: 'Mid-West',
+        icon: <img src={mid_west} alt="West" />
+    },
+    {
+        id: '3',
+        title: 'South-West',
+        icon: <img src={south_west} alt="West" />
+    },
+    {
+        id: '4',
+        title: 'North-East',
+        icon: <img src={north_east} alt="West" />
+    },
+    {
+        id: '5',
+        title: 'South-East',
+        icon: <img src={south_east} alt="West" />
     }
+];
+
+const inputReducer = (state, action) => {
+    switch (action.type) {
+        case 'CLICK':
+            return {
+                ...state,
+                value: action.val,
+                isValid: true
+            };    
+        default:
+            return state;
+    }
+
+};
+
+const SponsorTargetRegion = props => {
+    
+    const [inputState, dispatch] = useReducer(inputReducer, {
+        value: '', 
+        isValid: false
+    });
+
+    const { id, formUpdateHandler } = props;
+    const { value, isValid } = inputState;
+
+    useEffect(() => {
+        formUpdateHandler(id, value, isValid)
+    }, [id, value, isValid, formUpdateHandler]);
+
+    const clickHandler = checkedValues => {
+        console.log('Selected value', checkedValues);
+        dispatch({
+            type: 'CLICK', 
+            val: checkedValues
+        });
+    };
 
     return(
         <div className = 'response-field'>
             <p>What company sizes do you want to work with?</p>
             <Row >
-                <Checkbox.Group onChange={onChange} style={{width : '100%'}}>
+                <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
                     {DUMMY_REGIONS.map( title => (
                         <Col span={10} key={title.id} className="check-box">
                                 <Checkbox value={title.title}>
