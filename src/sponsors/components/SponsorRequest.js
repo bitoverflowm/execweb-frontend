@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useCallback } from 'react';
 
 import { Form, Steps, Button, message } from 'antd';
 
@@ -16,7 +16,53 @@ import '../../index.css';
 
 const { Step } = Steps;
 
+const formReducer = (state, action) => {
+    switch (action.type) {
+        case 'SELECT':
+            let formIsValid = true;
+            /*for (const inputId in state.inputs){
+                if(inputId === action.inputId){
+                    formIsValid = formIsValid && action.isValid;
+                }
+                TODO: Add form validation logic here;
+            }*/
+            return {
+                ...state,
+                inputs: {
+                    ...state.inputs,
+                    [action.inputId] : { value: action.value, isValid: action.isValid }
+                },
+                isValid: formIsValid
+            };
+        default:
+            return state;
+    }
+}
+
 const SponsorRequest = () => {
+
+    const [formState, dispatch] = useReducer(formReducer, {
+            inputs: {
+                username: {
+                    value: '',
+                    isValid: false
+                },
+                roles: {
+                    value: '',
+                    isValid: false
+                },
+                industries: {
+                    value: '',
+                    isValid: false
+                }
+            },
+            isValid: false});
+
+    const formUpdateHandler = useCallback(( id, value, isValid ) => { 
+        console.log(`formUpdateHandler id: ${id} value: ${value} isValid: ${isValid}`);
+        dispatch({type: 'SELECT', value: value, inputId: id, isValid: isValid});
+        console.log('action dispatched SponsorRequest values: ', formState);
+    }, []);
 
     const [current, setCurrent] = useState(0);    
     const [linkeIn, setLinkedIn] = useState();
@@ -29,44 +75,29 @@ const SponsorRequest = () => {
     const [topics, setTopics] = useState();
     const [host, setHost] = useState();
     const [summary, setSummary] = useState();
-
-
-    const handleLinkedInVerification = ( value ) => {
-        //this.setState({ linkedInVerified : true});
-        setLinkedIn({
-            username : 'testUser',
-            linkedInVerified: value 
-        });
-    };
+    
 
     const handleRoleSelection = ( values ) => {
         setRoles(values);
     };
-
     const handleIndustrySelection = ( values ) => {
         setIndustries(values);
-    };
-    
+    };    
     const handleHeadCountSelection = ( values ) => {
         setHeadCount(values);
     };
-
     const handleRegionSelection = ( values ) => {
         setRegions(values);
     };
-
     const handleUserSelection = ( values ) => {
         setUsers(values);
     };
-
     const handleDateSelection = ( values ) => {
         setDates(values);
     };
-
     const handleTopicSelection = ( values ) => {
         setTopics(values);
     };
-
     const handleHostSelection = ( values ) => {
         setHost(values);
     };
@@ -74,8 +105,20 @@ const SponsorRequest = () => {
     
 
     const steps = [
-        { title: 'Step 1', content: <SponsorAuth handleLinkedInVerification={handleLinkedInVerification}/> },
-        { title: 'Step 2', content: <SponsorTargetRole handleRoleSelection = {handleRoleSelection}/> },
+        { 
+            title: 'Step 1', 
+            content: 
+            <SponsorAuth 
+                id="username"
+                formUpdateHandler={formUpdateHandler} 
+                value={formState.username}/> 
+        },
+        { 
+            title: 'Step 2', 
+            content: 
+            <SponsorTargetRole 
+            handleRoleSelection = {handleRoleSelection}/> 
+        },
         { title: 'Step 3', content: <SponsorTargetIndustry handleIndustrySelection = {handleIndustrySelection}/> },
         { title: 'Step 4', content: <SponsorTargetHeadCount handleHeadCountSelection = {handleHeadCountSelection}/> },
         { title: 'Step 5', content: <SponsorTargetRegion handleRegionSelection = {handleRegionSelection}/>},
@@ -89,6 +132,7 @@ const SponsorRequest = () => {
         setCurrent(current + 1);
         setSummary([linkeIn, roles, industries, headCount, regions, users, dates, topics, host ])
         console.log(summary);
+        console.log(formState);
     };
 
     const prev = () => {
