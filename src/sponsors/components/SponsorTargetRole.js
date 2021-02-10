@@ -4,29 +4,30 @@ import { Checkbox, Row, Col } from 'antd';
 
 import '../../index.css';
 
-const SponsorTargetRole = props => {
-    const DUMMY_JOB_TITLE = [
-        {
-            id: 'j1',
-            title: 'Chief Information Officer'
-        },
-        {
-            id: 'j2',
-            title: 'Chief Executive Officer'
-        },
-        {
-            id: 'j3',
-            title: 'Chief Technology Officer'
-        },
-        {
-            id: 'j4',
-            title: 'Chief Operations Officer'
-        },
-        {
-            id: 'j5',
-            title: 'Chief Scientist'
-        }
-    ];
+const DUMMY_JOB_TITLE = [
+    {
+        id: 'j1',
+        title: 'Chief Information Officer'
+    },
+    {
+        id: 'j2',
+        title: 'Chief Executive Officer'
+    },
+    {
+        id: 'j3',
+        title: 'Chief Technology Officer'
+    },
+    {
+        id: 'j4',
+        title: 'Chief Operations Officer'
+    },
+    {
+        id: 'j5',
+        title: 'Chief Scientist'
+    }
+];
+
+const SponsorTargetRole = props => {   
 
     const onChange = (checkedValues) => {
         console.log('checked=', checkedValues);

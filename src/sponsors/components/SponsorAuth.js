@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { Button, message, Typography } from 'antd';
+import { Button, Typography } from 'antd';
 
 const { Text } = Typography;
 
@@ -38,7 +38,7 @@ const SponsorAuth = props => {
             type: 'CLICK', 
             val: submission
         });
-        props.formUpdateHandler(submission);
+        //props.formUpdateHandler(submission);
     }
 
     return(
@@ -47,7 +47,8 @@ const SponsorAuth = props => {
             <p>We care deeply about our memeber's experience and privacy.</p>
             <p>As part of this, we verify every member's professional identity.</p>
             <p>Connect your LinkedIn to begin!</p>
-            {inputState.value 
+            {console.log('props value in linked validation: ', props.value)}
+            {props.value.isValid 
                 ? <Text>Welcome {inputState.value} thank you for joining our community!</Text> 
                 : <Button type="primary" onClick={() => clickHandler({username : "John Doe"})}> Connect to LinkedIn</Button>}
         </div>

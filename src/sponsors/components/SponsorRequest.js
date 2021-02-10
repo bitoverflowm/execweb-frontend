@@ -43,20 +43,10 @@ const SponsorRequest = () => {
 
     const [formState, dispatch] = useReducer(formReducer, {
             inputs: {
-                username: {
-                    value: '',
-                    isValid: false
-                },
-                roles: {
-                    value: '',
-                    isValid: false
-                },
-                industries: {
-                    value: '',
-                    isValid: false
-                }
-            },
-            isValid: false});
+                username: { value: '', isValid: false},
+                roles: { value: '', isValid: false},
+                industries: { value: '', isValid: false}
+            }, isValid: false});
 
     const formUpdateHandler = useCallback(( id, value, isValid ) => { 
         console.log(`formUpdateHandler id: ${id} value: ${value} isValid: ${isValid}`);
@@ -64,9 +54,7 @@ const SponsorRequest = () => {
         console.log('action dispatched SponsorRequest values: ', formState);
     }, []);
 
-    const [current, setCurrent] = useState(0);    
-    const [linkeIn, setLinkedIn] = useState();
-    const [roles, setRoles] = useState();
+    const [current, setCurrent] = useState(0);
     const [industries, setIndustries] = useState();
     const [headCount, setHeadCount] = useState();
     const [regions, setRegions] = useState();
@@ -77,9 +65,6 @@ const SponsorRequest = () => {
     const [summary, setSummary] = useState();
     
 
-    const handleRoleSelection = ( values ) => {
-        setRoles(values);
-    };
     const handleIndustrySelection = ( values ) => {
         setIndustries(values);
     };    
@@ -101,7 +86,6 @@ const SponsorRequest = () => {
     const handleHostSelection = ( values ) => {
         setHost(values);
     };
-
     
 
     const steps = [
@@ -111,13 +95,15 @@ const SponsorRequest = () => {
             <SponsorAuth 
                 id="username"
                 formUpdateHandler={formUpdateHandler} 
-                value={formState.username}/> 
+                value={formState.inputs.username}/> 
         },
         { 
             title: 'Step 2', 
             content: 
-            <SponsorTargetRole 
-            handleRoleSelection = {handleRoleSelection}/> 
+            <SponsorTargetRole
+                id="roles"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.roles}/> 
         },
         { title: 'Step 3', content: <SponsorTargetIndustry handleIndustrySelection = {handleIndustrySelection}/> },
         { title: 'Step 4', content: <SponsorTargetHeadCount handleHeadCountSelection = {handleHeadCountSelection}/> },
@@ -130,8 +116,6 @@ const SponsorRequest = () => {
 
     const next = () => {
         setCurrent(current + 1);
-        setSummary([linkeIn, roles, industries, headCount, regions, users, dates, topics, host ])
-        console.log(summary);
         console.log(formState);
     };
 
@@ -140,8 +124,7 @@ const SponsorRequest = () => {
     };
 
     const onFinish = () => {
-        setSummary([linkeIn, roles, industries, headCount, regions, users, dates, topics, host ])
-        console.log('Successfully submitted:', [linkeIn, roles, industries, headCount, regions, users, dates, topics, host ]);
+        console.log('finished: ', formState);
       };
 
     return (
