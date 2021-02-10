@@ -119,7 +119,7 @@ const SponsorRequest = () => {
 
     const next = () => {
         setCurrent(current + 1);
-        console.log(formState);
+        console.log("triggering next: current formState: ", formState);
     };
 
     const prev = () => {

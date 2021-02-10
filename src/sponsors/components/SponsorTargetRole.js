@@ -39,7 +39,7 @@ const inputReducer = (state, action) => {
             return state;
     }
 
-}
+};
 
 const SponsorTargetRole = props => {
 
@@ -61,7 +61,7 @@ const SponsorTargetRole = props => {
             type: 'CLICK', 
             val: checkedValues
         });
-    }
+    };
 
     return(
         <div className = 'response-field'>
@@ -84,21 +84,3 @@ const SponsorTargetRole = props => {
 }
 
 export default SponsorTargetRole;
-
-
-
-
-/*
-<Row>
-                        {DUMMY_JOB_TITLE.map( title => (
-                            <Col span={10} key={title.id}>
-                                <div className="check-box">
-                                    <Checkbox value={title.title} onChange={test}>
-                                        {title.title}
-                                    </Checkbox>
-                                </div>
-                            </Col>
-                        ))}
-                    </Row>
-
-*/
