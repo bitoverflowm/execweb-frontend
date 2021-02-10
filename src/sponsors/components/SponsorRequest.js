@@ -161,11 +161,11 @@ const SponsorRequest = () => {
                         Next
                     </Button>
                 )}
-                {current > 0 && (
+                {/*current > 0 && (
                     <Button onClick={() => prev()}>
                         Previous
                     </Button>
-                )}                
+                )*/}                
                 {current === steps.length - 1 && (
                     <Button type="primary" htmlType="submit" onClick={() => message.success('Processing complete!')}>
                         Done
