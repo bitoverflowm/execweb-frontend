@@ -1,8 +1,8 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 
 import '../../index.css';
 
-import { Checkbox, Row, Col, Typography, Avatar } from 'antd';
+import { Checkbox, Row, Col, Typography, Avatar, Spin } from 'antd';
 
 const { Text } = Typography;
 
@@ -47,6 +47,43 @@ const inputReducer = (state, action) => {
 };
 
 const SponsorTargetUsers = props => {
+    
+    const searchParams = props.value;
+    const [isLoading, setIsLoading] = useState(false);
+    const [filteredUsers, setFilteredUsers] = useState();
+
+    useEffect(() => {
+        const sendRequest = async () => {
+            setIsLoading(true);
+            try
+            {
+                console.log("searching on the following params: ",  searchParams);
+                const response = await fetch('http://localhost:5000/api/sponsors/userSearch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify({
+                        jobTitles  : searchParams.roles.value,
+                        industries : searchParams.industries.value,
+                    })
+                });
+
+                const responseData = await response.json();
+
+                if(!response.ok){
+                    throw new Error(responseData.message);
+                }
+
+                console.log('Filtered users:', responseData)
+                setFilteredUsers(responseData.filteredUsers);
+                setIsLoading(false);
+            } catch (err) {
+                setIsLoading(false);
+            }
+        };
+        sendRequest();
+    }, []);
 
     const [inputState, dispatch] = useReducer(inputReducer, {
         value: '', 
@@ -77,17 +114,24 @@ const SponsorTargetUsers = props => {
             </p>
                 
             <Row>
-                <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
-                    {DUMMY_USER_DATA.map( user => (
-                        <Col span={24} key={user.id} className="check-box">
-                            <Checkbox value={user.id}>
-                                <Avatar src={user.avatar}/>                                
-                                <Text strong>{" " + user.first_name + " " + user.last_name}</Text> 
-                                <Text>{" " + user.position + " @" + user.company}</Text>
-                            </Checkbox>
-                        </Col>
-                    ))}
-                </Checkbox.Group>
+                {!isLoading && filteredUsers
+                    ? (
+                        <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
+                            {filteredUsers.map( user => (
+                                <Col span={24} key={user.item["_id"]} className="check-box">
+                                    <Checkbox value={user.item["_id"]}>
+                                        <Avatar src={user.item["Personal Photo"]}/>                                
+                                        <Text strong>{" " + user.item["First Name"] + " " + user.item["Last Name"]}</Text> 
+                                        <Text>{" " + user.item.Position + " @" + user.item.Company}</Text>
+                                    </Checkbox>
+                                </Col>
+                            ))}
+                        </Checkbox.Group>
+                    )
+                    : (
+                        <Spin />
+                    )
+                }
             </Row>
         </div>
     );   

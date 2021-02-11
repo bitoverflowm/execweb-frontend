@@ -102,7 +102,7 @@ const SponsorRequest = () => {
             <SponsorTargetUsers 
                 id="users"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.users}/>
+                value={formState.inputs}/>
         },
         { 
             title: 'Step 7', 
