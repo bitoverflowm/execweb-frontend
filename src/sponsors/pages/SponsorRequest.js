@@ -2,15 +2,15 @@ import React, { useState, useReducer, useCallback } from 'react';
 
 import { Form, Steps, Button, message } from 'antd';
 
-import SponsorAuth from './SponsorAuth';
-import SponsorTargetRole from './SponsorTargetRole';
-import SponsorTargetIndustry from './SponsorTargetIndustry';
-import SponsorTargetHeadCount from './SponsorTargetHeadCount';
-import SponsorTargetRegion from './SponsorTargetRegion';
-import SponsorTargetUsers from './SponsorTargetUsers';
-import SponsorTargetDate from './SponsorTargetDate';
-import SponsorTargetTopic from './SponsorTargetTopic';
-import SponsorTargetHost from './SponsorTargetHost';
+import SponsorAuth from '../components/SponsorAuth';
+import SponsorTargetRole from '../components/SponsorTargetRole';
+import SponsorTargetIndustry from '../components/SponsorTargetIndustry';
+import SponsorTargetHeadCount from '../components/SponsorTargetHeadCount';
+import SponsorTargetRegion from '../components/SponsorTargetRegion';
+import SponsorTargetUsers from '../components/SponsorTargetUsers';
+import SponsorTargetDate from '../components/SponsorTargetDate';
+import SponsorTargetTopic from '../components/SponsorTargetTopic';
+import SponsorTargetHost from '../components/SponsorTargetHost';
 
 import '../../index.css';
 

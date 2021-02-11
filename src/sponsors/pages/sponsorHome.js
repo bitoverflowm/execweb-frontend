@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SponsorRequest from '../components/SponsorRequest';
+import SponsorRequest from './SponsorRequest';
 import logo from '../../shared/assets/logo2.png';
 import jumbo_image1 from '../../shared/assets/jumbo-image1.png';
 

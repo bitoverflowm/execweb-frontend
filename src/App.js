@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 
 import Home from './Home';
 import SponsorHome from './sponsors/pages/sponsorHome';
-import SponsorRequest from './sponsors/components/SponsorRequest';
+import SponsorRequest from './sponsors/pages/SponsorRequest';
 import AdminDashboard from './admin/pages/AdminDashboard';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import SponsorshipRequestDetails from './admin/components/SponsorshipRequestDetails';
@@ -14,8 +14,6 @@ import 'antd/dist/antd.css';
 import './index.css';
 
 const { Content, Header } = Layout;
-
-
 
 const App = () => {
   return <Router>
