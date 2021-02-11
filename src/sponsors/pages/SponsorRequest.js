@@ -135,12 +135,41 @@ const SponsorRequest = () => {
         console.log("triggering next: current formState: ", formState);
     };
 
+    // Prev is currently disabled as it jsut complicated the state management
     const prev = () => {
         setCurrent(current - 1);
     };
 
-    const onFinish = () => {
-        console.log('finished: ', formState);
+    const onFinish = async event => {
+        console.log('Submitting completed form: ', formState);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/sponsors/sponsorRequest', {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({
+                    jobTitles  : formState.inputs.roles.value,
+                    industries : formState.inputs.industries.value, 
+                    clientList : 'text.csv',
+                    headCounts : formState.inputs.headCounts.value,
+                    regions    : formState.inputs.regions.value,
+                    users      : formState.inputs.users.value,
+                    dateStart  : formState.inputs.dates.value[0],
+                    dateEnd    : formState.inputs.dates.value[1],
+                    topic      : formState.inputs.topic.value[0],
+                    host       : formState.inputs.host.value[0],
+                    sponsor    : 1,
+                })
+            });
+            
+            const responseData = await response.json();
+            console.log('Server response: ', responseData);
+        } catch (err) {
+            console.log(err);
+        }       
+        
       };
 
     return (
