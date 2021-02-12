@@ -58,7 +58,7 @@ const SponsorTargetUsers = props => {
             try
             {
                 console.log("searching on the following params: ",  searchParams);
-                const response = await fetch('http://localhost:5000/api/sponsors/userSearch', {
+                const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/sponsors/userSearch', {
                     method: 'POST',
                     headers: {
                         'Content-Type' : 'application/json'

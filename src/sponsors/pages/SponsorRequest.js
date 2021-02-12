@@ -144,7 +144,7 @@ const SponsorRequest = () => {
         console.log('Submitting completed form: ', formState);
 
         try {
-            const response = await fetch('http://localhost:5000/api/sponsors/sponsorRequest', {
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/sponsors/sponsorRequest', {
                 method: 'POST',
                 headers: {
                     'Content-Type' : 'application/json'
