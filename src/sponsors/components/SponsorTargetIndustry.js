@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { Checkbox, Row, Col } from 'antd';
+import { Checkbox, Row, Col, message } from 'antd';
 
 import { FireTwoTone, ExperimentTwoTone, CodeTwoTone, BankTwoTone } from '@ant-design/icons';
 
@@ -24,7 +24,7 @@ const DUMMY_INDUSTRIES = [
     },
     {
         id: 'i4',
-        title: 'Other',
+        title: 'Energy',
         icon: <FireTwoTone twoToneColor="#60C6BE"/>
     }
 ]; 

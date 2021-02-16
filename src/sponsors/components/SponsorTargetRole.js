@@ -99,8 +99,8 @@ const SponsorTargetRole = props => {
                 </Checkbox.Group>
             </Row>
             <Row className= 'other-input'>
-                <p>Have a custom position in mind?</p>
-                <Search placeholder="Enter what you want here" allowClear enterButton="+" onSearch={onTextSubmission} />
+                <p>Have a custom job title in mind?</p>
+                <Search placeholder="Enter job title here" allowClear enterButton="+" onSearch={onTextSubmission} />
             </Row>
             
         </div>
