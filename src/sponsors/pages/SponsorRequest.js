@@ -50,8 +50,13 @@ const SponsorRequest = () => {
                 industries: { value: '', isValid: false}
             }, isValid: false});
 
-    const formUpdateHandler = useCallback(( id, value, isValid ) => { 
+    const formUpdateHandler = useCallback(( id, value, isValid, textInput = null ) => { 
         console.log(`formUpdateHandler id: ${id} value: ${value} isValid: ${isValid}`);
+        if(textInput && value){
+            value.push(textInput);
+        } else if (textInput && !value){
+            value = textInput;
+        }
         dispatch({type: 'SELECT', value: value, inputId: id, isValid: isValid});
     }, []);
 
