@@ -3,6 +3,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import { Button, Typography } from 'antd';
 
+import Profile from '../../shared/components/Auth/Profile';
+
 const { Text } = Typography;
 
 
@@ -29,7 +31,8 @@ const SponsorAuth = props => {
 
     const { id, formUpdateHandler } = props;
     const { value, isValid } = inputState;
-    const { loginWithRedirect } = useAuth0();
+    const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
+    
 
     useEffect(() => {
         formUpdateHandler(id, value, isValid)
@@ -51,8 +54,8 @@ const SponsorAuth = props => {
             <p>As part of this, we verify every member's professional identity.</p>
             <p>Connect your LinkedIn to begin!</p>
             {console.log('props value in linked validation: ', props.value)}
-            {props.value.isValid 
-                ? <Text>Welcome {inputState.value} thank you for joining our community!</Text> 
+            {isAuthenticated 
+                ? <Text>Welcome {user.name} thank you for joining our community!</Text> 
                 : <Button type="primary" onClick={() => loginWithRedirect()/*clickHandler({username : "John Doe"})*/}> Connect to LinkedIn</Button>}
         </div>
     );
