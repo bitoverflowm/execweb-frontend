@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import { Button, Typography } from 'antd';
 
@@ -28,6 +29,7 @@ const SponsorAuth = props => {
 
     const { id, formUpdateHandler } = props;
     const { value, isValid } = inputState;
+    const { loginWithRedirect } = useAuth0();
 
     useEffect(() => {
         formUpdateHandler(id, value, isValid)
@@ -35,6 +37,7 @@ const SponsorAuth = props => {
 
     const clickHandler = submission => {
         console.log('Submitted Value', submission);
+        
         dispatch({
             type: 'CLICK', 
             val: submission
@@ -50,7 +53,7 @@ const SponsorAuth = props => {
             {console.log('props value in linked validation: ', props.value)}
             {props.value.isValid 
                 ? <Text>Welcome {inputState.value} thank you for joining our community!</Text> 
-                : <Button type="primary" onClick={() => clickHandler({username : "John Doe"})}> Connect to LinkedIn</Button>}
+                : <Button type="primary" onClick={() => loginWithRedirect()/*clickHandler({username : "John Doe"})*/}> Connect to LinkedIn</Button>}
         </div>
     );
 };
