@@ -56,6 +56,11 @@ code {
   min-width: 550px;
 }
 
+.response-field .other-input {
+  padding: 3%;
+  width: 60%;
+}
+
 .response-action {
   padding-top: 10px;
   margin-right: 18%;
@@ -66,7 +71,14 @@ code {
   float: right;  
 }
 
+.check-box-wrapper{
+  width: 90%;
+  margin: 5%;
+  overflow: auto;
+}
+
 .check-box {
+  display: inline-block;
   padding: 10px;
   margin: 10px;
   border: 1px solid #EFF0F1;

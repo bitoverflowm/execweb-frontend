@@ -1,10 +1,12 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { Checkbox, Row, Col } from 'antd';
+import { Checkbox, Row, Col, Input, message } from 'antd';
 
 import { FireTwoTone, ExperimentTwoTone, CodeTwoTone, BankTwoTone } from '@ant-design/icons';
 
 import '../../index.css';
+
+const { Search } = Input;
 
 const DUMMY_INDUSTRIES = [
     {
@@ -24,7 +26,7 @@ const DUMMY_INDUSTRIES = [
     },
     {
         id: 'i4',
-        title: 'Other',
+        title: 'Energy',
         icon: <FireTwoTone twoToneColor="#60C6BE"/>
     }
 ]; 
@@ -36,7 +38,13 @@ const inputReducer = (state, action) => {
                 ...state,
                 value: action.val,
                 isValid: true
-            };    
+            };
+        case 'TEXT':
+            return {
+                ...state,
+                textinput: action.val,
+                isValid: true 
+            };  
         default:
             return state;
     }
@@ -47,15 +55,16 @@ const SponsorTargetIndustry = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
         value: '', 
+        textinput: '',
         isValid: false
     });
 
     const { id, formUpdateHandler } = props;
-    const { value, isValid } = inputState;
+    const { value, textinput, isValid } = inputState;
 
     useEffect(() => {
-        formUpdateHandler(id, value, isValid)
-    }, [id, value, isValid, formUpdateHandler]);
+        formUpdateHandler(id, value, isValid, textinput)
+    }, [id, value, textinput, isValid, formUpdateHandler]);
 
     const clickHandler = checkedValues => {
         console.log('Selected value', checkedValues);
@@ -65,19 +74,33 @@ const SponsorTargetIndustry = props => {
         });
     };
 
+    const onTextSubmission = value => {
+        console.log('newPosition text Entry', value);
+
+        dispatch({
+            type: 'TEXT',
+            val: value
+        });
+        message.success(value + ' Added to your submission!');
+    };
+
     return(
         <div className = 'response-field'>
-            <p>What industry are you targeting?</p>
+            <p>What industries are your target clients in?</p>
             <Row >
-                <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
+                <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                     {DUMMY_INDUSTRIES.map( title => (
-                        <Col span={10} key={title.id} className="check-box">
-                            <Checkbox value={title.title}>
+                        <div key={title.id} className="check-box">
+                            <Checkbox key={title.id} value={title.title}>
                                 {title.icon}{title.title}
                             </Checkbox>
-                        </Col>
+                        </div>
                         ))}
                 </Checkbox.Group>
+            </Row>
+            <Row className= 'other-input'>
+                <p>Have a custom industry in mind?</p>
+                <Search placeholder="Enter industry here" allowClear enterButton="+" onSearch={onTextSubmission} />
             </Row>
         </div>
     );   

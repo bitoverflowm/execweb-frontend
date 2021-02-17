@@ -1,8 +1,11 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { Checkbox, Row, Col } from 'antd';
+import { Checkbox, Row, Col, Input, message } from 'antd';
 
 import '../../index.css';
+
+const { Search } = Input;
+
 
 const DUMMY_JOB_TITLE = [
     {
@@ -24,6 +27,22 @@ const DUMMY_JOB_TITLE = [
     {
         id: 'j5',
         title: 'Chief Scientist'
+    },
+    {
+        id: 'j6',
+        title: 'Chief Security Officer'
+    },
+    {
+        id: 'j7',
+        title: 'Chief Data Officer'
+    },
+    {
+        id: 'j8',
+        title: 'Chief Compliance Officer'
+    },
+    {
+        id: 'j9',
+        title: 'Chief Product Officer'
     }
 ];
 
@@ -34,6 +53,12 @@ const inputReducer = (state, action) => {
                 ...state,
                 value: action.val,
                 isValid: true
+            };
+        case 'TEXT':
+            return {
+                ...state,
+                textinput: action.val,
+                isValid: true 
             };    
         default:
             return state;
@@ -44,16 +69,17 @@ const inputReducer = (state, action) => {
 const SponsorTargetRole = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: '', 
+        value: '',
+        textinput: '',
         isValid: false
     });
 
     const { id, formUpdateHandler } = props;
-    const { value, isValid } = inputState;
+    const { value, textinput, isValid } = inputState;
 
     useEffect(() => {
-        formUpdateHandler(id, value, isValid)
-    }, [id, value, isValid, formUpdateHandler]);
+        formUpdateHandler(id, value, isValid, textinput)
+    }, [id, value, textinput, isValid, formUpdateHandler]);
 
     const clickHandler = checkedValues => {
         console.log('Selected value', checkedValues);
@@ -63,20 +89,34 @@ const SponsorTargetRole = props => {
         });
     };
 
+    const onTextSubmission = value => {
+        console.log('newPosition text Entry', value);
+
+        dispatch({
+            type: 'TEXT',
+            val: value
+        });
+        message.success(value + ' Added to your submission!');
+    }
+
+
     return(
         <div className = 'response-field'>
-            <p>What are the job titles you are looking to connect with?</p>
-
+            <p>What are the job titles of your target clients?</p>
             <Row>
-                <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
+                <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                         {DUMMY_JOB_TITLE.map( title => (
-                            <Col span={10} key={title.id} className="check-box">
-                                <Checkbox value={title.title}>
+                            <div key={title.id} className="check-box">
+                                <Checkbox key={title.id} value={title.title}>
                                     {title.title}
                                 </Checkbox>
-                            </Col>
+                            </div>
                         ))}
                 </Checkbox.Group>
+            </Row>
+            <Row className= 'other-input'>
+                <p>Have a custom job title in mind?</p>
+                <Search placeholder="Enter job title here" allowClear enterButton="+" onSearch={onTextSubmission} />
             </Row>
             
         </div>
