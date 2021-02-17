@@ -4,7 +4,7 @@ import { Checkbox, Row, Col, Input, message } from 'antd';
 
 import '../../index.css';
 
-const { Search } = Input
+const { Search } = Input;
 
 
 const DUMMY_JOB_TITLE = [
@@ -27,6 +27,22 @@ const DUMMY_JOB_TITLE = [
     {
         id: 'j5',
         title: 'Chief Scientist'
+    },
+    {
+        id: 'j6',
+        title: 'Chief Security Officer'
+    },
+    {
+        id: 'j7',
+        title: 'Chief Data Officer'
+    },
+    {
+        id: 'j8',
+        title: 'Chief Compliance Officer'
+    },
+    {
+        id: 'j9',
+        title: 'Chief Product Officer'
     }
 ];
 
@@ -86,7 +102,7 @@ const SponsorTargetRole = props => {
 
     return(
         <div className = 'response-field'>
-            <p>What are the job titles you are looking to connect with?</p>
+            <p>What are the job titles of your target clients?</p>
             <Row>
                 <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                         {DUMMY_JOB_TITLE.map( title => (

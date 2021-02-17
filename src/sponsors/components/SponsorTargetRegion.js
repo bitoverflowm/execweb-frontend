@@ -76,7 +76,7 @@ const SponsorTargetRegion = props => {
 
     return(
         <div className = 'response-field'>
-            <p>What company sizes do you want to work with?</p>
+            <p>What US regions are your target accounts headquatered in?</p>
             <Row >
                 <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
                     {DUMMY_REGIONS.map( title => (

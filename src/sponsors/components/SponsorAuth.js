@@ -49,10 +49,10 @@ const SponsorAuth = props => {
 
     return(
         <div className = 'response-field'>
-            <p>Let's start by getting to know each other</p>
-            <p>We care deeply about our memeber's experience and privacy.</p>
-            <p>As part of this, we verify every member's professional identity.</p>
-            <p>Connect your LinkedIn to begin!</p>
+            <p>We will facilitate virtual roundtables with tech execs in your target market who are actively looking for new vendors.</p>
+            <p>You will need to answer a few questions, takes less than 2 minutes to complete, so that we can get you in front of the 5-10 most relevant to you tech executives.</p>
+            <p>You will need to to join using your LinkedIn account since we are an exclusive professional network and need to confirm everyone's professional identity.</p>
+            <p>Let's begin... </p>
             {console.log('props value in linked validation: ', props.value)}
             {isAuthenticated 
                 ? <Text>Welcome {user.name} thank you for joining our community!</Text> 

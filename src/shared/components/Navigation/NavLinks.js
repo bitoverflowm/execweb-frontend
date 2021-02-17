@@ -10,18 +10,12 @@ const NavLinks = props => {
     const { logout, isAuthenticated } = useAuth0();
 
     return (
-        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']}>
+        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
-                <NavLink to ="/SponsorRequest" exact> SPONSOR AN EVENT</NavLink>
+                <NavLink to ="/SponsorHome" exact> SPONSOR AN EVENT</NavLink>
             </Menu.Item>
             <Menu.Item key="2">
-                <NavLink to ="/u1/SponsorHome"> Dashboard</NavLink>
-            </Menu.Item>
-            <Menu.Item key="3">
                 <NavLink to ="/auth"> Register </NavLink>
-            </Menu.Item>
-            <Menu.Item key="4">
-                <NavLink to ="/adminDashboard"> Admin Dashboard </NavLink>
             </Menu.Item>
             {isAuthenticated && (
                 <Menu.Item key="5">
@@ -29,8 +23,7 @@ const NavLinks = props => {
                         Log Out 
                     </Button>
                 </Menu.Item>
-            )}
-            
+            )}            
         </Menu>
     )
 }

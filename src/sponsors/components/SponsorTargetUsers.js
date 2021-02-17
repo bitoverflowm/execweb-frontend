@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useState } from 'react';
 
 import '../../index.css';
 
-import { Checkbox, Row, Col, Typography, Avatar, Spin } from 'antd';
+import { Checkbox, Row, Col, Typography, Avatar, Spin, Popover, Button, Tag, Divider } from 'antd';
 
 const { Text } = Typography;
 
@@ -108,23 +108,55 @@ const SponsorTargetUsers = props => {
     return(
         <div className = 'response-field'> 
             <p>
-                <Text>We recommend the following professionals based on your responses.</Text>
+                <Text>The following executives best match your target client parameters.</Text>
                 <br></br>
-                <Text keyboard> Select who you would like to attend.</Text>
+                <Text keyboard> Select up to 15 tech executives you would like to have attend your virtual round table you sponsor.</Text>
             </p>
                 
             <Row>
                 {!isLoading && filteredUsers
                     ? (
-                        <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
+                        <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                             {filteredUsers.map( user => (
-                                <Col span={24} key={user.item["_id"]} className="check-box">
-                                    <Checkbox value={user.item["_id"]}>
-                                        <Avatar src={user.item["Personal Photo"]}/>                                
-                                        <Text strong>{" " + user.item["First Name"] + " " + user.item["Last Name"]}</Text> 
-                                        <Text>{" " + user.item.Position + " @" + user.item.Company}</Text>
-                                    </Checkbox>
-                                </Col>
+                                <div key={user.item["_id"]} className="check-box">
+                                        <Row>
+                                            <Col span= {2}>
+                                                <Checkbox value={user.item["_id"]} />
+                                            </Col>
+                                            <Col span={5}>
+                                                <Avatar size={64} src={user.item["Personal Photo"]}/>
+                                            </Col>
+                                            <Col span={17}>
+                                                <Row>
+                                                    <Text strong>{" " + user.item["First Name"] + " " + user.item["Last Name"]}</Text>
+                                                </Row> 
+                                                <Row>
+                                                    <Text>{" " + user.item.Position + " @" + user.item.Company}</Text>
+                                                </Row>
+                                                <Row>
+                                                    <Col span={12}>
+                                                        <Popover content={user.item["Personal Description"]} title="Description">
+                                                            <Button type="primary">Description</Button>
+                                                        </Popover>
+                                                    </Col>
+                                                    <Col span={12}>
+                                                        <Popover content={user.item["Experience"]} title="Experience">
+                                                            <Button type="primary">Experience</Button>
+                                                        </Popover>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Divider orientation="left">Key Values</Divider>
+                                                    <div>
+                                                        <Tag color="magenta">{user.item["# of Employees"]}</Tag>
+                                                        <Tag color="magenta">{user.item["Estimated Revenues"]}</Tag>
+                                                        <Tag color="magenta">{user.item["Industry"]}</Tag>
+                                                    </div>
+
+                                                </Row>
+                                            </Col>
+                                        </Row>
+                                </div>
                             ))}
                         </Checkbox.Group>
                     )
