@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useState } from 'react';
 
 import '../../index.css';
 
-import { Checkbox, Row, Col, Typography, Avatar, Spin, Popover, Button, Tag, Divider } from 'antd';
+import { Checkbox, Row, Col, Typography, Avatar, Spin, Popover, Button, Tag, Divider, Descriptions } from 'antd';
 
 const { Text } = Typography;
 
@@ -120,40 +120,49 @@ const SponsorTargetUsers = props => {
                             {filteredUsers.map( user => (
                                 <div key={user.item["_id"]} className="check-box">
                                         <Row>
-                                            <Col span= {2}>
-                                                <Checkbox value={user.item["_id"]} />
+                                            <Col span= {1}className="check-box-style">
+                                                <Checkbox value={user.item["_id"]}/>
                                             </Col>
-                                            <Col span={5}>
-                                                <Avatar size={64} src={user.item["Personal Photo"]}/>
+                                            <Col span={9}>
+                                                <div className="avatar-wrapper">
+                                                    <Avatar size={64} src={user.item["Personal Photo"]}/>
+                                                </div>
+                                                <div className="avatar-wrapper">
+                                                    <Popover content={user.item["Personal Description"]} title="Description" overlayClassName="popover-content">
+                                                        <Button type="primary">Description</Button>
+                                                    </Popover>
+                                                </div>
+                                                <div className="avatar-wrapper">
+                                                    <Popover content={user.item["Experience"]} title="Experience" overlayClassName="popover-content">
+                                                        <Button>Experience</Button>
+                                                    </Popover>
+                                                </div>
                                             </Col>
-                                            <Col span={17}>
+                                            <Col span={14}>
                                                 <Row>
                                                     <Text strong>{" " + user.item["First Name"] + " " + user.item["Last Name"]}</Text>
-                                                </Row> 
-                                                <Row>
-                                                    <Text>{" " + user.item.Position + " @" + user.item.Company}</Text>
                                                 </Row>
                                                 <Row>
-                                                    <Col span={12}>
-                                                        <Popover content={user.item["Personal Description"]} title="Description">
-                                                            <Button type="primary">Description</Button>
-                                                        </Popover>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <Popover content={user.item["Experience"]} title="Experience">
-                                                            <Button type="primary">Experience</Button>
-                                                        </Popover>
-                                                    </Col>
+                                                    <Text>Title: {user.item.Position}</Text>
                                                 </Row>
                                                 <Row>
-                                                    <Divider orientation="left">Key Values</Divider>
-                                                    <div>
-                                                        <Tag color="magenta">{user.item["# of Employees"]}</Tag>
-                                                        <Tag color="magenta">{user.item["Estimated Revenues"]}</Tag>
-                                                        <Tag color="magenta">{user.item["Industry"]}</Tag>
-                                                    </div>
-
+                                                    <Text>Company: {user.item.Company}</Text>
+                                                </Row>   
+                                                <Row>
+                                                    <Text>Location: {user.item.State}</Text>
                                                 </Row>
+                                                <Row className="tag-wrapper">
+                                                    <Tag color="black" >Est. Employees: {user.item["# of Employees"]}</Tag>
+                                                </Row>
+                                                <Row className="tag-wrapper">
+                                                    <Tag color="black">Industry: {user.item["Industry"]}</Tag>
+                                                </Row>
+                                                <Row className="tag-wrapper">
+                                                    <Tag color="black">Est. Revenue: {user.item["Estimated Revenues"]}</Tag>
+                                                </Row>                                               
+                                                
+                                                
+                                                
                                             </Col>
                                         </Row>
                                 </div>
