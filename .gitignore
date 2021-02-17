@@ -1,5 +1,10 @@
-<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+#lint
+.eslintcache
+
+#firebase hosting
+.firebase/
 
 # dependencies
 /node_modules
@@ -24,7 +29,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-=======
 # Logs
 logs
 *.log
@@ -129,4 +133,3 @@ dist
 
 # TernJS port file
 .tern-port
->>>>>>> a648e2e136f98829619fae9022a3163143f26241
