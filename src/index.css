@@ -87,4 +87,23 @@ code {
   border-radius: 5px;
 }
 
+.check-box-style {
+  padding-top: 15%;
+}
+
+.avatar-wrapper {
+  padding: 3px;
+  text-align: center;
+}
+
+.popover-content {
+  max-width: 25%;
+}
+
+.tag-wrapper {
+  padding: 0.2%;
+}
+
+
+
 
