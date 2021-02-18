@@ -51,6 +51,17 @@ const SponsorTargetDate = props => {
         <div className = 'response-field'>
             <p>When would you like to host your roundtable?</p>
             <RangePicker
+                id = {0}
+                onChange={clickHandler}
+                disabledDate={disabledDate}
+                showTime={{
+                    hideDisabledOptions: true,
+                    defaultValue: [moment('00:00', 'HH:mm'), moment('11:59', 'HH:mm')],
+                }}
+                format="YYYY-MM-DD HH:mm"
+            />
+            <RangePicker
+                id = {1}
                 onChange={clickHandler}
                 disabledDate={disabledDate}
                 showTime={{

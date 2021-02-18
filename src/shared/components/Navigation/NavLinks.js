@@ -14,9 +14,6 @@ const NavLinks = props => {
             <Menu.Item key="1">
                 <NavLink to ="/SponsorHome" exact> SPONSOR AN EVENT</NavLink>
             </Menu.Item>
-            <Menu.Item key="2">
-                <NavLink to ="/auth"> Register </NavLink>
-            </Menu.Item>
             {isAuthenticated && (
                 <Menu.Item key="5">
                     <Button onClick={() => logout()}> 

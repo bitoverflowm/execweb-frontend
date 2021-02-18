@@ -152,17 +152,14 @@ const SponsorTargetUsers = props => {
                                                     <Text>Location: {user.item.State}</Text>
                                                 </Row>
                                                 <Row className="tag-wrapper">
-                                                    <Tag color="black" >Est. Employees: {user.item["# of Employees"]}</Tag>
+                                                    <Tag >Est. Employees: {user.item["# of Employees"]}</Tag>
                                                 </Row>
                                                 <Row className="tag-wrapper">
-                                                    <Tag color="black">Industry: {user.item["Industry"]}</Tag>
+                                                    <Tag>Industry: {user.item["Industry"]}</Tag>
                                                 </Row>
                                                 <Row className="tag-wrapper">
-                                                    <Tag color="black">Est. Revenue: {user.item["Estimated Revenues"]}</Tag>
-                                                </Row>                                               
-                                                
-                                                
-                                                
+                                                    <Tag>Est. Revenue: {user.item["Estimated Revenues"]}</Tag>
+                                                </Row> 
                                             </Col>
                                         </Row>
                                 </div>

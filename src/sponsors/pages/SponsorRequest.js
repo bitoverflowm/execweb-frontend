@@ -67,7 +67,7 @@ const SponsorRequest = () => {
             <SponsorAuth 
                 id="username"
                 formUpdateHandler={formUpdateHandler} 
-                value={formState.inputs.username}/> 
+                value={formState.inputs.username}/>  
         },
         { 
             title: 'Step 2', 
@@ -133,6 +133,14 @@ const SponsorRequest = () => {
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.host}/>
         },
+        { 
+            title: 'Step 10', 
+            content: 
+            <SponsorTargetHost 
+                id="host"
+                formUpdateHandler={formUpdateHandler}
+                value={formState.inputs.host}/>
+        }
     ];
 
     const next = () => {
