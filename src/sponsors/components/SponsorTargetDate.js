@@ -70,6 +70,16 @@ const SponsorTargetDate = props => {
                 }}
                 format="YYYY-MM-DD HH:mm"
             />
+            <RangePicker
+                id = {2}
+                onChange={clickHandler}
+                disabledDate={disabledDate}
+                showTime={{
+                    hideDisabledOptions: true,
+                    defaultValue: [moment('00:00', 'HH:mm'), moment('11:59', 'HH:mm')],
+                }}
+                format="YYYY-MM-DD HH:mm"
+            />
         </div>
     );   
 }
