@@ -12,7 +12,7 @@ const NavLinks = props => {
     return (
         <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
-                <NavLink to ="/SponsorHome" exact> SPONSOR AN EVENT</NavLink>
+                <NavLink to ="/" exact> Home</NavLink>
             </Menu.Item>
             {isAuthenticated && (
                 <Menu.Item key="5">

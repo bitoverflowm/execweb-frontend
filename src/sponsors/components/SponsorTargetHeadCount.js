@@ -2,8 +2,8 @@ import React, { useReducer, useEffect } from 'react';
 
 import { Checkbox, Row, Col } from 'antd';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faUserFriends, faUsers, faHome, faLandmark, faBuilding } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faUserFriends, faUsers, faHome, faLandmark, faBuilding } from '@fortawesome/free-solid-svg-icons';
 
 import '../../index.css';
 
@@ -84,7 +84,7 @@ const SponsorTargetHeadCount = props => {
             <Row >
                 <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
                     {DUMMY_HEAD_COUNT.map( title => (
-                        <Col span={10} key={title.id} className="check-box">
+                        <Col span={16} key={title.id} className="check-box">
                                 <Checkbox value={title.title}>
                                     {title.icon} {title.title }
                                 </Checkbox>

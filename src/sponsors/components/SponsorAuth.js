@@ -3,6 +3,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import { Button, Typography } from 'antd';
 
+import { LinkedinOutlined } from '@ant-design/icons';
+
 import Profile from '../../shared/components/Auth/Profile';
 
 const { Text } = Typography;
@@ -54,9 +56,11 @@ const SponsorAuth = props => {
             <p>You will need to to join using your LinkedIn account since we are an exclusive professional network and need to confirm everyone's professional identity.</p>
             <p>Let's begin... </p>
             {console.log('props value in linked validation: ', props.value)}
-            {isAuthenticated 
-                ? <Text>Welcome {user.name} thank you for joining our community!</Text> 
-                : <Button type="primary" onClick={() => loginWithRedirect()/*clickHandler({username : "John Doe"})*/}> Connect to LinkedIn</Button>}
+            <div className= "linkedin-auth-wrapper">
+                {isAuthenticated 
+                    ? <Text>Welcome {user.name} thank you for joining our community!</Text> 
+                    : <Button type="primary" className="linkedin-auth" onClick={() => loginWithRedirect()/*clickHandler({username : "John Doe"})*/}>  Connect to LinkedIn</Button>}
+            </div>
         </div>
     );
 };

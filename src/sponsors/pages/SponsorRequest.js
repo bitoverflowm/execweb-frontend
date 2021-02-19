@@ -1,6 +1,6 @@
 import React, { useState, useReducer, useCallback } from 'react';
 
-import { Form, Steps, Button, message } from 'antd';
+import { Form, Steps, Button, message, Row, Col } from 'antd';
 
 import SponsorAuth from '../components/SponsorAuth';
 import SponsorTargetRole from '../components/SponsorTargetRole';
@@ -13,6 +13,15 @@ import SponsorTargetTopic from '../components/SponsorTargetTopic';
 import SponsorTargetHost from '../components/SponsorTargetHost';
 
 import '../../index.css';
+import formImage0 from '../../shared/assets/sponsor-request-images/0.jpg';
+import formImage1 from '../../shared/assets/sponsor-request-images/1.jpg';
+import formImage2 from '../../shared/assets/sponsor-request-images/2.jpg';
+import formImage3 from '../../shared/assets/sponsor-request-images/3.jpg';
+import formImage4 from '../../shared/assets/sponsor-request-images/4.jpg';
+import formImage5 from '../../shared/assets/sponsor-request-images/5.jpg';
+import formImage6 from '../../shared/assets/sponsor-request-images/6.jpg';
+
+import logo from '../../shared/assets/logo2.png';
 
 const { Step } = Steps;
 
@@ -20,12 +29,6 @@ const formReducer = (state, action) => {
     switch (action.type) {
         case 'SELECT':
             let formIsValid = true;
-            /*for (const inputId in state.inputs){
-                if(inputId === action.inputId){
-                    formIsValid = formIsValid && action.isValid;
-                }
-                TODO: Add form validation logic here;
-            }*/
             return {
                 ...state,
                 inputs: {
@@ -63,19 +66,21 @@ const SponsorRequest = () => {
     const steps = [
         { 
             title: 'Step 1', 
-            content: 
-            <SponsorAuth 
-                id="username"
-                formUpdateHandler={formUpdateHandler} 
-                value={formState.inputs.username}/> 
+            content:  <SponsorAuth 
+                        id="username"
+                        formUpdateHandler={formUpdateHandler} 
+                        value={formState.inputs.username}/>,
+            image: <img src={formImage0} alt="formImage0" className="response-field-image" />
+                        
         },
         { 
             title: 'Step 2', 
             content: 
-            <SponsorTargetRole
-                id="roles"
-                formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.roles}/> 
+                <SponsorTargetRole
+                    id="roles"
+                    formUpdateHandler={formUpdateHandler}
+                    value={formState.inputs.roles}/>,
+            image: <img src={formImage1} alt="formImage1" className="response-field-image" />
         },
         { 
             title: 'Step 3', 
@@ -83,7 +88,8 @@ const SponsorRequest = () => {
             <SponsorTargetIndustry 
                 id="industries"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.industries}/> 
+                value={formState.inputs.industries}/>,
+            image: <img src={formImage2} alt="formImage2" className="response-field-image" /> 
         },
         { 
             title: 'Step 4', 
@@ -91,7 +97,8 @@ const SponsorRequest = () => {
             <SponsorTargetHeadCount 
                 id="headCounts"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.headCounts}/> 
+                value={formState.inputs.headCounts}/>,
+            image: <img src={formImage3} alt="formImage3" className="response-field-image" /> 
         },
         { 
             title: 'Step 5', 
@@ -99,7 +106,8 @@ const SponsorRequest = () => {
             <SponsorTargetRegion
                 id="regions"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.regions}/>
+                value={formState.inputs.regions}/>,
+            image: <img src={formImage4} alt="formImage4" className="response-field-image" />
         },
         { 
             title: 'Step 6', 
@@ -107,7 +115,8 @@ const SponsorRequest = () => {
             <SponsorTargetUsers 
                 id="users"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs}/>
+                value={formState.inputs}/>,
+            image: <img src={formImage5} alt="formImage5" className="response-field-image" />
         },
         { 
             title: 'Step 7', 
@@ -115,7 +124,8 @@ const SponsorRequest = () => {
             <SponsorTargetDate 
                 id="dates"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.dates}/>
+                value={formState.inputs.dates}/>,
+            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
         },
         { 
             title: 'Step 8', 
@@ -123,7 +133,8 @@ const SponsorRequest = () => {
             <SponsorTargetTopic 
                 id="topic"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.topic}/>
+                value={formState.inputs.topic}/>,
+            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
         },
         { 
             title: 'Step 9', 
@@ -131,7 +142,8 @@ const SponsorRequest = () => {
             <SponsorTargetHost 
                 id="host"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.host}/>
+                value={formState.inputs.host}/>,
+            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
         },
     ];
 
@@ -185,27 +197,39 @@ const SponsorRequest = () => {
                 ))}
             </Steps>
             
-            <div className="response-field">
-                {steps[current].content}
-            </div>
-            
-            <div className="response-action">
-                {current < steps.length - 1 && (
-                    <Button type="primary" onClick={() => next()}>
-                        Next
-                    </Button>
-                )}
-                {/*current > 0 && (
-                    <Button onClick={() => prev()}>
-                        Previous
-                    </Button>
-                )*/}                
-                {current === steps.length - 1 && (
-                    <Button type="primary" htmlType="submit" onClick={() => message.success('Processing complete!')}>
-                        Done
-                    </Button>
-                )}
-            </div>
+            <Row>
+                <Col span={12}>
+                    <div className="response-field-wrapper">
+                        <Row>
+                            <img src={logo} alt="Logo" className="logo"/>
+                        </Row>
+                        <Row className="response-field">
+                            {steps[current].content}
+                        </Row>
+
+                        <div className="response-action">
+                            {current < steps.length - 1 && (
+                                <Button type="primary" onClick={() => next()}>
+                                    Next
+                                </Button>
+                            )}
+                            {/*current > 0 && (
+                                <Button onClick={() => prev()}>
+                                    Previous
+                                </Button>
+                            )*/}                
+                            {current === steps.length - 1 && (
+                                <Button className="response-submit" type="primary" htmlType="submit" onClick={() => message.success('Processing complete!')}>
+                                    Done
+                                </Button>
+                            )}
+                        </div>
+                    </div>
+                </Col>
+                <Col span={10}>
+                    {steps[current].image}
+                </Col>
+            </Row>
         </Form>
     )
 };

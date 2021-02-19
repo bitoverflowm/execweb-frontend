@@ -80,7 +80,7 @@ const SponsorTargetRegion = props => {
             <Row >
                 <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
                     {DUMMY_REGIONS.map( title => (
-                        <Col span={10} key={title.id} className="check-box">
+                        <Col span={12} key={title.id} className="check-box">
                                 <Checkbox value={title.title}>
                                     {title.icon} {title.title }
                                 </Checkbox>

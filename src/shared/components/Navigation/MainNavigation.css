@@ -5,14 +5,6 @@
   background: #fff;
 }
 
-.logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: url('../../assets/blackOnTransparent.png') no-repeat;
-}
-
 .header {
   background-color: #fff;
   white-space: nowrap;

@@ -13,8 +13,8 @@ code {
 }
 
 .logo {
-  height: 50px;
-  padding: 50px 50px 100px 50px;
+  padding: 10px;
+  margin: auto;
 }
 
 /*
@@ -31,12 +31,6 @@ code {
   margin: auto;
 }
 
-.header-logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-}
 
 /*
   Home header About Section
@@ -106,8 +100,10 @@ code {
 }
 
 .response-field {
-  width: 75%;
-  min-width: 550px;
+  margin: auto;
+  padding: 2%;
+  padding-bottom: 2%;
+  text-align: justify;
 }
 
 .response-field .other-input {
@@ -115,15 +111,47 @@ code {
   width: 60%;
 }
 
+.response-field-wrapper {
+  padding-top: 10%;
+}
+
 .response-action {
-  padding-top: 10px;
+  padding-left: 5%;
   margin-right: 18%;
 }
 
 .response-action Button{
-  margin: 10px;
-  float: right;  
+  margin: auto;
+  float: right;
+  background: #1890FF;
+  border-radius: 6px;
+
 }
+
+.response-field-image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  padding: 5%;
+}
+
+/*
+-- Authentication
+*/
+
+.linkedin-auth {
+  margin: auto;
+  background: #12C1F9;
+  border-radius: 6px;
+  width: 80%;
+
+}
+
+.linkedin-auth-wrapper {
+  padding-left: 7%;
+}
+
+
 
 .check-box-wrapper{
   min-width: 90%;
@@ -134,7 +162,7 @@ code {
 .check-box {
   display: inline-block;
   padding: 10px;
-  margin: 10px;
+  margin: 1%;
   border: 1px solid #EFF0F1;
   box-sizing: border-box;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
