@@ -31,8 +31,7 @@ const App = () => {
             <Layout >
               <Header className = "site-layout-header" style={{backgroundColor: '#fff'}}>
                 <MainNavigation />
-              </Header>
-              
+              </Header>              
               <Content className = "site-layout-content">
                 <Suspense fallback={
                   <Space size="middle">

@@ -17,6 +17,60 @@ code {
   padding: 50px 50px 100px 50px;
 }
 
+/*
+  * Home styling
+  */
+
+.home-jumbo-content {
+  background-color: #fff;
+  padding: '0 50px';
+  text-align: center;
+}
+
+.home-call-to-action {
+  margin: auto;
+}
+
+.header-logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+}
+
+/*
+  Home header About Section
+  Title How it works?
+*/
+
+.home-about-heading {
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 48px;
+  padding-top: 5%;
+}
+
+.home-about-content{
+  margin: auto;
+}
+
+/*
+  Home Why IntroEQ section
+*/
+
+.home-why-content-wrapper {
+  margin: auto;
+  background-color: #F7F8FA;
+  /*background-color: #fff;*/
+}
+
+.home-why-content {
+  margin: auto;
+}
+
 .jumbo-image{
   overflow: hidden;
   padding-top: 50px;
@@ -27,7 +81,7 @@ code {
   padding-left: 10%;
   object-fit : cover;
   position: relative;
-}
+} 
 
 .site-layout-content {
   min-height: 280px;

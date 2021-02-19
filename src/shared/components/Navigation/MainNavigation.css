@@ -17,6 +17,9 @@
   background-color: #fff;
   white-space: nowrap;
   overflow: hidden;
+  float: right;
+  margin-right: 10%;
+  padding-right: 14%;
 }
 
 .header-child{
