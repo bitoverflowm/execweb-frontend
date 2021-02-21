@@ -1,5 +1,7 @@
 import React, { useState, useReducer, useCallback } from 'react';
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 import { Form, Steps, Button, message, Row, Col } from 'antd';
 
 import SponsorAuth from '../components/SponsorAuth';
@@ -45,6 +47,8 @@ const formReducer = (state, action) => {
 const SponsorRequest = () => {
 
     const [current, setCurrent] = useState(0);
+    
+    const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
 
     const [formState, dispatch] = useReducer(formReducer, {
             inputs: {
@@ -210,7 +214,7 @@ const SponsorRequest = () => {
                         </Row>
 
                         <div className="response-action">
-                            {current < steps.length - 1 && formState.inputs.username.isValid && (
+                            {current < steps.length - 1 && user && (
                                 <Button type="primary" onClick={() => next()}>
                                     Next
                                 </Button>
