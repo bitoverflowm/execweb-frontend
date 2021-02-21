@@ -9,7 +9,7 @@ import SponsorTargetRole from '../components/SponsorTargetRole';
 import SponsorTargetIndustry from '../components/SponsorTargetIndustry';
 import SponsorTargetHeadCount from '../components/SponsorTargetHeadCount';
 import SponsorTargetRegion from '../components/SponsorTargetRegion';
-import SponsorTargetUsers from '../components/SponsorTargetUsers';
+import SponsorSummary from '../components/SponsorSummary';
 import SponsorTargetUsersList from '../components/SponsorTargetUsersList';
 import SponsorTargetDate from '../components/SponsorTargetDate';
 import SponsorTargetTopic from '../components/SponsorTargetTopic';
@@ -151,6 +151,15 @@ const SponsorRequest = () => {
                 value={formState.inputs.host}/>,
             image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
         },
+        { 
+            title: 'Step 10', 
+            content: 
+            <SponsorSummary 
+                id="summary"
+                data={formState.inputs}/>,
+            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
+        }
+
     ];
 
     const next = () => {

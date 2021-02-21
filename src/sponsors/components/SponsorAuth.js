@@ -59,7 +59,7 @@ const SponsorAuth = props => {
             <div className= "linkedin-auth-wrapper">
                 {isAuthenticated 
                     ? <Profile />
-                    : <Button type="primary" className="linkedin-auth" onClick={() => clickHandler}>  Connect to LinkedIn</Button>}
+                    : <Button type="primary" className="linkedin-auth" onClick={() => clickHandler()}>  Connect to LinkedIn</Button>}
             </div>
         </div>
     );

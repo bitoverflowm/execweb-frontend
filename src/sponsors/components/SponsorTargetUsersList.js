@@ -14,7 +14,7 @@ const inputReducer = (state, action) => {
         case 'CLICK':
             return {
                 ...state,
-                value: [...state.value, action.val],
+                value: [... new Set([...state.value].concat(action.val))],
                 isValid: true
             };    
         default:
@@ -106,7 +106,7 @@ const SponsorTargetUsersList = props => {
                                     item => (
                                         <List.Item key={item.item["_id"]} className="check-box">
                                             <Col span= {1}className="check-box-style">
-                                                <Checkbox value={item.item["_id"]}/>
+                                                <Checkbox value={ item.item["_id"] }/>
                                             </Col>
                                             <Col span={9}>
                                                 <div className="avatar-wrapper">
