@@ -42,10 +42,10 @@ const SponsorAuth = props => {
 
     const clickHandler = submission => {
         console.log('Submitted Value', submission);
-        
+        loginWithRedirect();   
         dispatch({
             type: 'CLICK', 
-            val: submission
+            val: user
         });
     }
 
@@ -59,7 +59,7 @@ const SponsorAuth = props => {
             <div className= "linkedin-auth-wrapper">
                 {isAuthenticated 
                     ? <Profile />
-                    : <Button type="primary" className="linkedin-auth" onClick={() => loginWithRedirect()}>  Connect to LinkedIn</Button>}
+                    : <Button type="primary" className="linkedin-auth" onClick={() => clickHandler}>  Connect to LinkedIn</Button>}
             </div>
         </div>
     );
