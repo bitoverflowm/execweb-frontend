@@ -15,7 +15,7 @@ const inputReducer = (state, action) => {
         case 'CLICK':
             return {
                 ...state,
-                value: action.val.username,
+                value: action.val,
                 isValid: true
             };    
         default:

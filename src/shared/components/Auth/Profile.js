@@ -13,7 +13,7 @@ const Profile = () => {
       <Card loading={isLoading}>
         <Meta 
           title = {user.name}
-          avatar = {<Avatar src={user.picture} />}
+          avatar = {<Avatar src={user.picture} size="large"/>}
           description = {user.email}
         />        
       </Card>

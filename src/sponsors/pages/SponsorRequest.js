@@ -54,7 +54,7 @@ const SponsorRequest = () => {
             }, isValid: false});
 
     const formUpdateHandler = useCallback(( id, value, isValid, textInput = null ) => { 
-        console.log(`formUpdateHandler id: ${id} value: ${value} isValid: ${isValid}`);
+        console.log(`formUpdateHandler id: ${id} value: ${value} textInput: ${textInput} isValid: ${isValid}`);
         if(textInput && value){
             value.push(textInput);
         } else if (textInput && !value){
@@ -193,6 +193,7 @@ const SponsorRequest = () => {
     return (
         <Form className = "site-layout-content" onFinish={onFinish}>
             <Steps current={current}>
+                {console.log( "hard look at formstate ", formState )}
                 {steps.map(item => (
                     <Step key={item.title} hidden />
                 ))}
@@ -209,7 +210,7 @@ const SponsorRequest = () => {
                         </Row>
 
                         <div className="response-action">
-                            {current < steps.length - 1 && (
+                            {current < steps.length - 1 && formState.inputs.username.isValid && (
                                 <Button type="primary" onClick={() => next()}>
                                     Next
                                 </Button>
