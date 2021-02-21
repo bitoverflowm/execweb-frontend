@@ -69,7 +69,8 @@ const SponsorRequest = () => {
             content:  <SponsorAuth 
                         id="username"
                         formUpdateHandler={formUpdateHandler} 
-                        value={formState.inputs.username}/>,
+                        value={formState.inputs.username}
+                        />,
             image: <img src={formImage0} alt="formImage0" className="response-field-image" />
                         
         },

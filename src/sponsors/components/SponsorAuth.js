@@ -58,8 +58,8 @@ const SponsorAuth = props => {
             {console.log('props value in linked validation: ', props.value)}
             <div className= "linkedin-auth-wrapper">
                 {isAuthenticated 
-                    ? <Text>Welcome {user.name} thank you for joining our community!</Text> 
-                    : <Button type="primary" className="linkedin-auth" onClick={() => loginWithRedirect()/*clickHandler({username : "John Doe"})*/}>  Connect to LinkedIn</Button>}
+                    ? <Profile />
+                    : <Button type="primary" className="linkedin-auth" onClick={() => loginWithRedirect()}>  Connect to LinkedIn</Button>}
             </div>
         </div>
     );
