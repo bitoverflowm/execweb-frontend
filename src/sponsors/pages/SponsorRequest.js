@@ -10,6 +10,7 @@ import SponsorTargetIndustry from '../components/SponsorTargetIndustry';
 import SponsorTargetHeadCount from '../components/SponsorTargetHeadCount';
 import SponsorTargetRegion from '../components/SponsorTargetRegion';
 import SponsorTargetUsers from '../components/SponsorTargetUsers';
+import SponsorTargetUsersList from '../components/SponsorTargetUsersList';
 import SponsorTargetDate from '../components/SponsorTargetDate';
 import SponsorTargetTopic from '../components/SponsorTargetTopic';
 import SponsorTargetHost from '../components/SponsorTargetHost';
@@ -48,7 +49,7 @@ const SponsorRequest = () => {
 
     const [current, setCurrent] = useState(0);
     
-    const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
+    const { user } = useAuth0();
 
     const [formState, dispatch] = useReducer(formReducer, {
             inputs: {
@@ -117,7 +118,7 @@ const SponsorRequest = () => {
         { 
             title: 'Step 6', 
             content: 
-            <SponsorTargetUsers 
+            <SponsorTargetUsersList 
                 id="users"
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs}/>,
@@ -215,6 +216,11 @@ const SponsorRequest = () => {
 
                         <div className="response-action">
                             {current < steps.length - 1 && user && (
+                                <Button type="primary" onClick={() => next()}>
+                                    Next
+                                </Button>
+                            )}
+                            {process.env.REACT_APP_DEV && (
                                 <Button type="primary" onClick={() => next()}>
                                     Next
                                 </Button>
