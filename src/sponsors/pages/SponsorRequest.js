@@ -229,7 +229,9 @@ const SponsorRequest = () => {
                                     Next
                                 </Button>
                             )}
-                            {process.env.REACT_APP_DEV && (
+                            {console.log('DEVELOPMENT ENV check', process.env.REACT_APP_BACKEND_URL )}
+                            {console.log('DEVELOPMENT ENV check === ', process.env.REACT_APP_BACKEND_URL === 'http://localhost:5000/api')}
+                            {process.env.REACT_APP_BACKEND_URL === 'http://localhost:5000/api' && (
                                 <Button type="primary" onClick={() => next()}>
                                     Next
                                 </Button>
