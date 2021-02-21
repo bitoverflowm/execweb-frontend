@@ -4,6 +4,8 @@ import '../../index.css';
 
 import { Checkbox, Row, Col, Typography, Avatar, Spin, Popover, Button, Tag, Divider, Descriptions, List } from 'antd';
 
+import { UserOutlined } from '@ant-design/icons';
+
 const { Text } = Typography;
 
 
@@ -90,61 +92,63 @@ const SponsorTargetUsersList = props => {
             <Row>
                 {!isLoading && filteredUsers
                     ? (
-                        <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
-                            <List 
+                        <Checkbox.Group onChange={clickHandler} className= "user-checkbox-wrapper">
+                            <List                                 
                                 dataSource ={filteredUsers}
                                 pagination={{
                                     onChange: page => {
                                         console.log(page);
                                     },
                                     pageSize: 3,
+                                    showSizeChanger : false
                                 }}
                                 renderItem={
                                     item => (
                                         <List.Item key={item.item["_id"]} className="check-box">
+                                            <Col span= {1}className="check-box-style">
+                                                <Checkbox value={item.item["_id"]}/>
+                                            </Col>
+                                            <Col span={9}>
+                                                <div className="avatar-wrapper">
+                                                    <Avatar size={64} 
+                                                        src= {item.item["Personal Photo"] !== 'Image NA' && item.item["Personal Photo"] }
+                                                        icon = { item.item["Personal Photo"] === 'Image NA' && <UserOutlined /> }
+                                                            />
+                                                </div>
+                                                <div className="avatar-wrapper">
+                                                    <Popover content={item.item["Personal Description"]} title="Description" overlayClassName="popover-content">
+                                                        <Button type="primary">Description</Button>
+                                                    </Popover>
+                                                </div>
+                                                <div className="avatar-wrapper">
+                                                    <Popover content={item.item["Experience"]} title="Experience" overlayClassName="popover-content">
+                                                        <Button>Experience</Button>
+                                                    </Popover>
+                                                </div>
+                                            </Col>
+                                            <Col span={13}>
                                                 <Row>
-                                                    <Col span= {1}className="check-box-style">
-                                                        <Checkbox value={item.item["_id"]}/>
-                                                    </Col>
-                                                    <Col span={9}>
-                                                        <div className="avatar-wrapper">
-                                                            <Avatar size={64} src={item.item["Personal Photo"]}/>
-                                                        </div>
-                                                        <div className="avatar-wrapper">
-                                                            <Popover content={item.item["Personal Description"]} title="Description" overlayClassName="popover-content">
-                                                                <Button type="primary">Description</Button>
-                                                            </Popover>
-                                                        </div>
-                                                        <div className="avatar-wrapper">
-                                                            <Popover content={item.item["Experience"]} title="Experience" overlayClassName="popover-content">
-                                                                <Button>Experience</Button>
-                                                            </Popover>
-                                                        </div>
-                                                    </Col>
-                                                    <Col span={14}>
-                                                        <Row>
-                                                            <Text strong>{" " + item.item["First Name"] + " " + item.item["Last Name"]}</Text>
-                                                        </Row>
-                                                        <Row>
-                                                            <Text>Title: {item.item.Position}</Text>
-                                                        </Row>
-                                                        <Row>
-                                                            <Text>Company: {item.item.Company}</Text>
-                                                        </Row>   
-                                                        <Row>
-                                                            <Text>Location: {item.item.State}</Text>
-                                                        </Row>
-                                                        <Row className="tag-wrapper">
-                                                            <Tag >Est. Employees: {item.item["# of Employees"]}</Tag>
-                                                        </Row>
-                                                        <Row className="tag-wrapper">
-                                                            <Tag>Industry: {item.item["Industry"]}</Tag>
-                                                        </Row>
-                                                        <Row className="tag-wrapper">
-                                                            <Tag>Est. Revenue: {item.item["Estimated Revenues"]}</Tag>
-                                                        </Row> 
-                                                    </Col>
+                                                    <Text strong>{" " + item.item["First Name"] + " " + item.item["Last Name"]}</Text>
                                                 </Row>
+                                                <Row>
+                                                    <Text>Title: {item.item.Position}</Text>
+                                                </Row>
+                                                <Row>
+                                                    <Text>Company: {item.item.Company}</Text>
+                                                </Row>   
+                                                <Row>
+                                                    <Text>Location: {item.item.State}</Text>
+                                                </Row>
+                                                <Row className="tag-wrapper">
+                                                    <Tag >Est. Employees: {item.item["# of Employees"]}</Tag>
+                                                </Row>
+                                                <Row className="tag-wrapper">
+                                                    <Tag>Industry: {item.item["Industry"]}</Tag>
+                                                </Row>
+                                                <Row className="tag-wrapper">
+                                                    <Tag>Est. Revenue: {item.item["Estimated Revenues"]}</Tag>
+                                                </Row> 
+                                            </Col>
                                         </List.Item>
                                     )
                                 }
