@@ -82,13 +82,13 @@ const SponsorTargetHeadCount = props => {
         <div className = 'response-field'>
             <p>What company sizes of your target accounts?</p>
             <Row >
-                <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
+                <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                     {DUMMY_HEAD_COUNT.map( title => (
-                        <Col span={16} key={title.id} className="check-box">
+                        <div key={title.id} className="check-box-headcount">
                                 <Checkbox value={title.title}>
                                     {title.icon} {title.title }
                                 </Checkbox>
-                        </Col>
+                        </div>
                     ))}
                 </Checkbox.Group>
             </Row>
