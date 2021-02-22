@@ -3,17 +3,22 @@ import moment from 'moment';
 
 import '../../index.css';
 
-import { DatePicker } from 'antd';
-const { RangePicker } = DatePicker;
+import { DatePicker, TimePicker, Row } from 'antd';
 
 const inputReducer = (state, action) => {
     switch (action.type) {
-        case 'CLICK':
+        case 'DATE_SELECT':
             return {
                 ...state,
-                value: [...state.value, [action.val]],
+                value: [...state.value, action.val],
                 isValid: true
-            };    
+            };
+        case 'TIME_SELECT':
+            return {
+                ...state,
+                value: [...state.value, action.val],
+                isValid: true
+            };  
         default:
             return state;
     }
@@ -34,52 +39,53 @@ const SponsorTargetDate = props => {
         formUpdateHandler(id, value, isValid)
     }, [id, value, isValid, formUpdateHandler]);
 
-    const clickHandler = selectedDate => {
-        console.log('Selected value', selectedDate);
-        dispatch({
-            type: 'CLICK', 
-            val: selectedDate
-        });
+    const clickHandler = (selectedDateTime, dateOrTime) => {
+        console.log('Selected value', selectedDateTime, dateOrTime);
+        if(dateOrTime === 'date'){
+            dispatch({
+                type: 'DATE_SELECT', 
+                val: selectedDateTime
+            });
+        } else {
+            dispatch({
+                type: 'TIME_SELECT', 
+                val: selectedDateTime
+            });
+        }        
     };
 
-    const disabledDate = (current) => {
-        // Can not select days before today and today
+    const dateChange = (date, dateString) => {
+        console.log(dateString);
+        clickHandler(dateString, 'date');
+    };
+
+    const timeChange = (time, timeString) => {
+        console.log(timeString);
+        clickHandler(timeString, 'time');
+    };
+
+    // Can not select days before today and today
+    const disabledDate = (current) => {        
         return current && current < moment().endOf('day');
     };
+
+    const format = 'h:mm a';
     
     return(
         <div className = 'response-field'>
             <p>When would you like to host your roundtable?</p>
-            <RangePicker
-                id = {0}
-                onChange={clickHandler}
-                disabledDate={disabledDate}
-                showTime={{
-                    hideDisabledOptions: true,
-                    defaultValue: [moment('00:00', 'HH:mm'), moment('11:59', 'HH:mm')],
-                }}
-                format="YYYY-MM-DD HH:mm"
-            />
-            <RangePicker
-                id = {1}
-                onChange={clickHandler}
-                disabledDate={disabledDate}
-                showTime={{
-                    hideDisabledOptions: true,
-                    defaultValue: [moment('00:00', 'HH:mm'), moment('11:59', 'HH:mm')],
-                }}
-                format="YYYY-MM-DD HH:mm"
-            />
-            <RangePicker
-                id = {2}
-                onChange={clickHandler}
-                disabledDate={disabledDate}
-                showTime={{
-                    hideDisabledOptions: true,
-                    defaultValue: [moment('00:00', 'HH:mm'), moment('11:59', 'HH:mm')],
-                }}
-                format="YYYY-MM-DD HH:mm"
-            />
+            <Row>
+                <DatePicker id={0} disabledDate={disabledDate} onChange={dateChange} /> 
+                <TimePicker id={1} use12Hours onChange={timeChange} format={format} />
+            </Row>
+            <Row>
+                <DatePicker id={2} disabledDate={disabledDate} onChange={dateChange} /> 
+                <TimePicker id={3} use12Hours onChange={timeChange} format={format} />
+            </Row>
+            <Row>
+                <DatePicker id={4} disabledDate={disabledDate} onChange={dateChange} /> 
+                <TimePicker id={5} use12Hours onChange={timeChange} format={format} />
+            </Row>
         </div>
     );   
 }
