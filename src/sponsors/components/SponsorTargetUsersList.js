@@ -83,34 +83,29 @@ const SponsorTargetUsersList = props => {
 
     return(
         <div className = 'response-field'> 
-            <p>
-                <Text>The following executives best match your target client parameters.</Text>
-                <br></br>
-                <Text keyboard> Select up to 15 tech executives you would like to have attend your virtual round table you sponsor.</Text>
-            </p>
+            <p>The following executives best match your target client parameters.</p>
+            <p className="text"> Select up to 15 tech executives you would like to have attend your virtual round table you sponsor.</p>
                 
             <Row>
                 {!isLoading && filteredUsers
                     ? (
-                        <Checkbox.Group onChange={clickHandler} className= "user-checkbox-wrapper">
+                        <Checkbox.Group onChange={clickHandler} className= "user-check-box-wrapper">
                             <List                                 
                                 dataSource ={filteredUsers}
                                 pagination={{
-                                    onChange: page => {
-                                        console.log(page);
-                                    },
-                                    pageSize: 3,
+                                    onChange: page => {console.log(page);},
+                                    pageSize: 4,
                                     showSizeChanger : false
                                 }}
                                 renderItem={
                                     item => (
                                         <List.Item key={item.item["_id"]} className="check-box">
-                                            <Col span= {1}className="check-box-style">
+                                            <Col span={2} className="check-box-style">
                                                 <Checkbox value={ item.item["_id"] }/>
                                             </Col>
-                                            <Col span={9}>
+                                            <Col span={6}>
                                                 <div className="avatar-wrapper">
-                                                    <Avatar size={64} 
+                                                    <Avatar size={100} 
                                                         src= {item.item["Personal Photo"] !== 'Image NA' && item.item["Personal Photo"] }
                                                         icon = { item.item["Personal Photo"] === 'Image NA' && <UserOutlined /> }
                                                             />
@@ -126,18 +121,18 @@ const SponsorTargetUsersList = props => {
                                                     </Popover>
                                                 </div>
                                             </Col>
-                                            <Col span={13}>
+                                            <Col span={17}>
                                                 <Row>
-                                                    <Text strong>{" " + item.item["First Name"] + " " + item.item["Last Name"]}</Text>
+                                                    <Text className="user-list-sub-heading">{" " + item.item["First Name"] + " " + item.item["Last Name"]}</Text>
                                                 </Row>
                                                 <Row>
-                                                    <Text>Title: {item.item.Position}</Text>
+                                                    <Text><span className="user-list-sub-heading">Title</span>: {item.item.Position}</Text>
                                                 </Row>
                                                 <Row>
-                                                    <Text>Company: {item.item.Company}</Text>
+                                                    <Text><span className="user-list-sub-heading">Company:</span> {item.item.Company}</Text>
                                                 </Row>   
                                                 <Row>
-                                                    <Text>Location: {item.item.State}</Text>
+                                                    <Text><span className="user-list-sub-heading">Location:</span> {item.item.State}</Text>
                                                 </Row>
                                                 <Row className="tag-wrapper">
                                                     <Tag >Est. Employees: {item.item["# of Employees"]}</Tag>
@@ -156,7 +151,9 @@ const SponsorTargetUsersList = props => {
                         </Checkbox.Group>
                     )
                     : (
-                        <Spin />
+                        <div className="user-list-spinner">
+                            <Spin />
+                        </div>
                     )
                 }
             </Row>

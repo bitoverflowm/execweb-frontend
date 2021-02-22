@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useState } from 'react';
 
 import '../../index.css';
 
-import { Checkbox, Row, Col, Typography, Avatar, Spin, Popover, Button, Tag, Divider, Descriptions } from 'antd';
+import { Checkbox, Row, Col, Typography, Avatar, Spin, Popover, Button, Tag } from 'antd';
 
 const { Text } = Typography;
 
@@ -67,12 +67,8 @@ const SponsorTargetUsers = props => {
 
     return(
         <div className = 'response-field'> 
-            <p>
-                <Text>The following executives best match your target client parameters.</Text>
-                <br></br>
-                <Text keyboard> Select up to 15 tech executives you would like to have attend your virtual round table you sponsor.</Text>
-            </p>
-                
+            <p className="text">The following executives best match your target client parameters.</p>
+            <p className="text"> Select up to 15 tech executives you would like to have attend your virtual round table you sponsor.</p>                
             <Row>
                 {!isLoading && filteredUsers
                     ? (
