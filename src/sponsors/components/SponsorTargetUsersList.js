@@ -99,7 +99,7 @@ const SponsorTargetUsersList = props => {
                                 }}
                                 renderItem={
                                     item => (
-                                        <List.Item key={item.item["_id"]} className="check-box">
+                                        <List.Item key={item.item["_id"]} className="user-list-check-box">
                                             <Col span={2} className="check-box-style">
                                                 <Checkbox value={ item.item["_id"] }/>
                                             </Col>
