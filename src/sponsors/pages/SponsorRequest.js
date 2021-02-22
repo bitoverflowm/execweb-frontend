@@ -248,7 +248,7 @@ const SponsorRequest = () => {
                         </Row>
 
                         <div className="response-action">
-                            {current < steps.length - 1 && user && (
+                            {current < steps.length - 2 && user && (
                                 <Button type="primary" onClick={() => next()}>
                                     Next
                                 </Button>
