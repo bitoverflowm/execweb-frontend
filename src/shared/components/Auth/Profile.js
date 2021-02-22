@@ -17,7 +17,7 @@ const Profile = () => {
           description = {user.email}
         />        
       </Card>
-    )
+    ) 
   );
 };
 

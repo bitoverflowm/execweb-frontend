@@ -15,9 +15,8 @@ const SponsorSummary = props => {
     return(
         <div className = 'response-field'>
             <p className="text">Please confirm your submission?</p>
+            <Profile />
             <Descriptions title="Sumamry" column={1} >
-                {console.log("summary data:", data)}
-                <Profile />
                 <Descriptions.Item label="Job Titles">{data.roles.value}</Descriptions.Item>
                 <Descriptions.Item label="Industries">{data.industries.value}</Descriptions.Item>
                 <Descriptions.Item label="Head count">{data.headCounts.value}</Descriptions.Item>
