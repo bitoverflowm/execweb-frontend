@@ -9,7 +9,7 @@ const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   return (
-    isAuthenticated && (
+    user && (
       <Card loading={isLoading}>
         <Meta 
           title = {user.name}
