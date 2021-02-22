@@ -320,3 +320,13 @@ code {
   padding-right: 5px;
   padding-top: 7px;
 }
+
+.sponsor-thankyou{
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+}
+
+.sponsor-thankyou-icon {
+  font-size: 50px;
+}

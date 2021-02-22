@@ -2,7 +2,7 @@ import React, { useReducer, useEffect } from 'react';
 
 import '../../index.css';
 
-import { Col, Checkbox, Typography } from 'antd';
+import { Col, Checkbox, Typography, Radio } from 'antd';
 
 const { Text } = Typography;
 
@@ -38,25 +38,26 @@ const SponsorTargetHost = props => {
         console.log('Selected value', checkedValues);
         dispatch({
             type: 'CLICK', 
-            val: checkedValues
+            val: checkedValues.target.value
         });
     };
 
     return(
         <div className = 'response-field'>
-            <p>Do you want us to source a host or do yuo have one in mind?</p>
-            <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
-                <Col span={12} className="check-box">
-                    <Checkbox value={1}>                               
+            <p>Do you want us to source a moderator for the roundtable? </p>
+            <p>Or would you prefer to ask one of your clients' tech execs to moderate?</p>
+            <Radio.Group onChange={clickHandler}>
+                <div span={12} className="check-box-generic">
+                    <Radio value={1}>                               
                         <Text strong>I have my own host. </Text>
-                    </Checkbox>
-                </Col>
-                <Col span={12} className="check-box">
-                    <Checkbox value={0}>
-                        <Text strong>Please provide me with a host </Text> 
-                    </Checkbox>
-                </Col>
-            </Checkbox.Group> 
+                    </Radio>
+                </div>
+                <div span={12} className="check-box-generic">
+                    <Radio value={0}>
+                        <Text strong>Please provide me with a host. </Text> 
+                    </Radio>
+                </div>
+            </Radio.Group> 
         </div>
     );   
 }

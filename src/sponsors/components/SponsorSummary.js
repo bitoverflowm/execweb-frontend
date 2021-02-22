@@ -1,6 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
-
-import { useAuth0 } from "@auth0/auth0-react";
+import React from 'react';
 
 import Profile from '../../shared/components/Auth/Profile';
 
@@ -16,7 +14,7 @@ const SponsorSummary = props => {
 
     return(
         <div className = 'response-field'>
-            <p>Do you have a topic in mind?</p>
+            <p className="text">Please confirm your submission?</p>
             <Descriptions title="Sumamry" column={1} >
                 {console.log("summary data:", data)}
                 <Profile />
@@ -27,7 +25,7 @@ const SponsorSummary = props => {
                 <Descriptions.Item label="Date 1">{data.dates.value[0]}, {data.dates.value[1]}</Descriptions.Item>
                 <Descriptions.Item label="Date 2">{data.dates.value[2]}, {data.dates.value[3]}</Descriptions.Item>
                 <Descriptions.Item label="Date 3">{data.dates.value[4]}, {data.dates.value[5]}</Descriptions.Item>
-                <Descriptions.Item label="Do you have a preferred topic?">{data.topic.value[0] === 1 ? 'Yes' : 'No'}</Descriptions.Item>
+                <Descriptions.Item label="Do you have a preferred topic?">{data.topic.value === 0 ? 'No' : data.topic.value}</Descriptions.Item>
                 <Descriptions.Item label="Do you want to source the host?">{data.host.value[0] === 1 ? 'Yes' : 'No'}</Descriptions.Item>
             </Descriptions>
         </div>

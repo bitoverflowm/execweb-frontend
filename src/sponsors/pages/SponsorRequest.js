@@ -2,6 +2,7 @@ import React, { useState, useReducer, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAuth0 } from "@auth0/auth0-react";
+import { CheckCircleTwoTone } from '@ant-design/icons';
 
 import { Form, Steps, Button, message, Row, Col } from 'antd';
 
@@ -163,8 +164,10 @@ const SponsorRequest = () => {
         { 
             title: 'Step 11', 
             content: 
-            <div>
-                Thank You for Your Submission!
+            <div className='sponsor-thankyou'>
+                <h1>Thank You for Your Submission!</h1>
+                <p>We will review your application and get back to you as soon as possible</p>
+                <CheckCircleTwoTone className="sponsor-thankyou-icon" twoToneColor="#52c41a"/>
             </div>,
             image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
         },

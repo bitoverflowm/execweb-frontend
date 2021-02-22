@@ -2,7 +2,7 @@ import React, { useReducer, useEffect } from 'react';
 
 import '../../index.css';
 
-import { Col, Radio, Typography, message, Row, Input } from 'antd';
+import { Radio, Typography, message, Row, Input } from 'antd';
 
 const {Search} = Input;
 
@@ -66,13 +66,12 @@ const SponsorTargetTopic = props => {
             <p>What is the topic you would like to be discussed?</p>
             <p>(ideally a topic that solves a problem using your platform/service)</p>
             <Row className= 'other-input'>
-            <p>Have a custom industry in mind?</p>
                 <Search placeholder="Enter topic here" allowClear enterButton="+" onSearch={onTextSubmission} />
             </Row>
             
             <Row>
-                <Radio.Group onChange={clickHandler} style={{width : '100%'}}>
-                    <div className="check-box">
+                <Radio.Group onChange={clickHandler}>
+                    <div className="check-box-generic">
                         <Radio value={0}>
                             <Text strong>Please provide me with a topic </Text> 
                         </Radio>
