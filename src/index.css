@@ -49,6 +49,7 @@ code {
 
 .home-about-content{
   margin: auto;
+  padding-bottom: 5px;
 }
 
 /*
@@ -64,6 +65,40 @@ code {
 .home-why-content {
   margin: auto;
 }
+
+/*
+* Home Footer content
+*/
+.home-footer {
+  background: #fff;
+}
+
+.home-footer-logo {
+  max-width: 75%;
+  padding-top: 8%;
+  padding-left: 10%;
+}
+
+.home-footer-headers {
+  font-weight: bolder;
+}
+
+.home-footer-col-wrapper {
+  padding-top: 3px;
+}
+
+.home-footer-col-wrapper > * {
+  padding-top: 3px;
+}
+
+.home-footer-icon {
+  padding-right: 3px;
+  padding-top: 3px;
+}
+
+/*
+* End of home footer
+*/
 
 .jumbo-image{
   overflow: hidden;
@@ -150,7 +185,6 @@ code {
 .linkedin-auth-wrapper {
   padding-left: 7%;
 }
-
 
 
 .check-box-wrapper{
