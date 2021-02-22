@@ -2,7 +2,7 @@ import React, { useReducer, useEffect } from 'react';
 
 import { Checkbox, Row, Col, Input, message } from 'antd';
 
-import { FireTwoTone, ExperimentTwoTone, CodeTwoTone, BankTwoTone } from '@ant-design/icons';
+import { FireTwoTone, ExperimentTwoTone, CodeTwoTone, BankTwoTone, LikeTwoTone, HeartTwoTone, RocketTwoTone, BookTwoTone, CarTwoTone, FilterTwoTone, FileExclamationTwoTone, MedicineBoxTwoTone } from '@ant-design/icons';
 
 import '../../index.css';
 
@@ -12,23 +12,64 @@ const DUMMY_INDUSTRIES = [
     {
         id: 'i1',
         title: 'Financial Services',
-        icon: <BankTwoTone twoToneColor="#FFB454"/>
+        icon: <BankTwoTone className="check-box-industry-icon" twoToneColor="#FFB454"/>
     },
     {
         id: 'i2',
         title: 'Technology',
-        icon: <CodeTwoTone twoToneColor="#AFE2DE"/>
+        icon: <CodeTwoTone className="check-box-industry-icon" twoToneColor="#AFE2DE"/>
     },
     {
         id: 'i3',
         title: 'Pharma & Medicine',
-        icon: <ExperimentTwoTone twoToneColor="#FFB454"/>
+        icon: <ExperimentTwoTone className="check-box-industry-icon" twoToneColor="#FFB454"/>
     },
     {
         id: 'i4',
         title: 'Energy',
-        icon: <FireTwoTone twoToneColor="#60C6BE"/>
+        icon: <FireTwoTone className="check-box-industry-icon"/>
+    },
+    {
+        id: 'i5',
+        title: 'Non-Profit',
+        icon: <HeartTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
+    },
+    {
+        id: 'i6',
+        title: 'Military',
+        icon: <RocketTwoTone className="check-box-industry-icon" twoToneColor="#FFB454"/>
+    },
+    {
+        id: 'i7',
+        title: 'Higher Education',
+        icon: <BookTwoTone className="check-box-industry-icon"/>
+    },
+    {
+        id: 'i8',
+        title: 'Marketing & Advertisement',
+        icon: <LikeTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
+    },
+    {
+        id: 'i8',
+        title: 'Transportaion',
+        icon: <CarTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
+    },
+    {
+        id: 'i9',
+        title: 'Sanitation',
+        icon: <FilterTwoTone className="check-box-industry-icon"/>
+    },
+    {
+        id: 'i10',
+        title: 'Legal Services',
+        icon: <FileExclamationTwoTone className="check-box-industry-icon" twoToneColor="#FFB454"/>
+    },
+    {
+        id: 'i11',
+        title: 'Healthcare',
+        icon: <MedicineBoxTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
     }
+
 ]; 
 
 const inputReducer = (state, action) => {
@@ -87,10 +128,10 @@ const SponsorTargetIndustry = props => {
     return(
         <div className = 'response-field'>
             <p>What industries are your target clients in?</p>
-            <Row >
+            <Row>
                 <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                     {DUMMY_INDUSTRIES.map( title => (
-                        <div key={title.id} className="check-box">
+                        <div key={title.id} className="check-box-industries">
                             <Checkbox key={title.id} value={title.title}>
                                 {title.icon}{title.title}
                             </Checkbox>
