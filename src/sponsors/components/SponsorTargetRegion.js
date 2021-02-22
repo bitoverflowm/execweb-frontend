@@ -78,13 +78,13 @@ const SponsorTargetRegion = props => {
         <div className = 'response-field'>
             <p>What US regions are your target accounts headquatered in?</p>
             <Row >
-                <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
+                <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                     {DUMMY_REGIONS.map( title => (
-                        <Col span={12} key={title.id} className="check-box">
+                        <div key={title.id} className="check-box-generic">
                                 <Checkbox value={title.title}>
                                     {title.icon} {title.title }
                                 </Checkbox>
-                        </Col>
+                        </div>
                     ))}
                 </Checkbox.Group>
             </Row>

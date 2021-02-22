@@ -131,7 +131,7 @@ const SponsorTargetIndustry = props => {
             <Row>
                 <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                     {DUMMY_INDUSTRIES.map( title => (
-                        <div key={title.id} className="check-box-industries">
+                        <div key={title.id} className="check-box-generic">
                             <Checkbox key={title.id} value={title.title}>
                                 {title.icon}{title.title}
                             </Checkbox>
