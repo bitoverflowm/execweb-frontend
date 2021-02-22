@@ -185,6 +185,30 @@ const SponsorRequest = () => {
 
     const confirmationHandler = async event => {
         console.log('Submitting completed form: ', formState);
+        
+        // Form submission body creation
+        let payload;
+        try {
+            payload = JSON.stringify({
+                jobTitles  : formState.inputs.roles.value,
+                industries : formState.inputs.industries.value, 
+                clientList : 'text.csv',
+                headCounts : formState.inputs.headCounts.value,
+                regions    : formState.inputs.regions.value,
+                users      : formState.inputs.users.value,
+                dateStart  : /*formState.inputs.dates.value[0]*/'Jan 1st',
+                dateEnd    : /*formState.inputs.dates.value[1]*/'Feb 1st',
+                topic      : formState.inputs.topic.value[0],
+                host       : formState.inputs.host.value[0],
+                sponsor    : user ? user.email : 1,
+            })
+        }
+        catch (err){
+            console.log('Error in payload body creation');
+            console.log(err);
+        }
+
+        console.log("Sponsorship Payload: ", payload);
 
         try {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/sponsors/sponsorRequest', {
@@ -192,25 +216,11 @@ const SponsorRequest = () => {
                 headers: {
                     'Content-Type' : 'application/json'
                 },
-                body: JSON.stringify({
-                    jobTitles  : formState.inputs.roles.value,
-                    industries : formState.inputs.industries.value, 
-                    clientList : 'text.csv',
-                    headCounts : formState.inputs.headCounts.value,
-                    regions    : formState.inputs.regions.value,
-                    users      : formState.inputs.users.value,
-                    dateStart  : /*formState.inputs.dates.value[0]*/'Jan 1st',
-                    dateEnd    : /*formState.inputs.dates.value[1]*/'Feb 1st',
-                    topic      : formState.inputs.topic.value[0],
-                    host       : formState.inputs.host.value[0],
-                    sponsor    : user ? user.email : 1,
-                })
-            });
-            
+                body: payload
+            });            
             const responseData = await response.json();
             console.log('Server response: ', responseData);
-            setCurrent(current + 1);
-                        
+            setCurrent(current + 1);         
         } catch (err) {
             console.log(err);
         }; 
