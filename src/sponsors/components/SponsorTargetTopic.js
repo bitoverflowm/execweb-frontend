@@ -2,7 +2,9 @@ import React, { useReducer, useEffect } from 'react';
 
 import '../../index.css';
 
-import { Col, Checkbox, Typography } from 'antd';
+import { Col, Radio, Typography, message, Row, Input } from 'antd';
+
+const {Search} = Input;
 
 const { Text } = Typography;
 
@@ -13,7 +15,13 @@ const inputReducer = (state, action) => {
                 ...state,
                 value: action.val,
                 isValid: true
-            };    
+            };
+        case 'TEXT':
+            return {
+                ...state,
+                textinput: action.val,
+                isValid: true 
+            };
         default:
             return state;
     }
@@ -23,40 +31,55 @@ const inputReducer = (state, action) => {
 const SponsorTargetTopic = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: '', 
+        value: '',
+        textinput: '',
         isValid: false
     });
 
     const { id, formUpdateHandler } = props;
-    const { value, isValid } = inputState;
+    const { value, textinput, isValid } = inputState;
 
     useEffect(() => {
-        formUpdateHandler(id, value, isValid)
-    }, [id, value, isValid, formUpdateHandler]);
+        formUpdateHandler(id, value, isValid, textinput)
+    }, [id, value, textinput, isValid, formUpdateHandler]);
 
     const clickHandler = checkedValues => {
         console.log('Selected value', checkedValues);
         dispatch({
             type: 'CLICK', 
-            val: checkedValues
+            val: checkedValues.target.value
         });
+    };
+
+    const onTextSubmission = value => {
+        console.log('newPosition text Entry', value);
+
+        dispatch({
+            type: 'TEXT',
+            val: value
+        });
+        message.success(value + ' Added to your submission!');
     };
 
     return(
         <div className = 'response-field'>
-            <p>Do you have a topic in mind?</p>
-            <Checkbox.Group onChange={clickHandler} style={{width : '100%'}}>
-                <Col span={12} className="check-box">
-                    <Checkbox value={1}>                               
-                        <Text strong>I have my own </Text> 
-                    </Checkbox>
-                </Col>
-                <Col span={12} className="check-box">
-                    <Checkbox value={0}>
-                        <Text strong>Please provide me with a topic </Text> 
-                    </Checkbox>
-                </Col>
-            </Checkbox.Group>
+            <p>What is the topic you would like to be discussed?</p>
+            <p>(ideally a topic that solves a problem using your platform/service)</p>
+            <Row className= 'other-input'>
+            <p>Have a custom industry in mind?</p>
+                <Search placeholder="Enter topic here" allowClear enterButton="+" onSearch={onTextSubmission} />
+            </Row>
+            
+            <Row>
+                <Radio.Group onChange={clickHandler} style={{width : '100%'}}>
+                    <div className="check-box">
+                        <Radio value={0}>
+                            <Text strong>Please provide me with a topic </Text> 
+                        </Radio>
+                    </div>
+                </Radio.Group>
+            </Row>
+
         </div>
     );   
 }

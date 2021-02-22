@@ -50,22 +50,22 @@ const DUMMY_INDUSTRIES = [
         icon: <LikeTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
     },
     {
-        id: 'i8',
+        id: 'i9',
         title: 'Transportaion',
         icon: <CarTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
     },
     {
-        id: 'i9',
+        id: 'i10',
         title: 'Sanitation',
         icon: <FilterTwoTone className="check-box-industry-icon"/>
     },
     {
-        id: 'i10',
+        id: 'i11',
         title: 'Legal Services',
         icon: <FileExclamationTwoTone className="check-box-industry-icon" twoToneColor="#FFB454"/>
     },
     {
-        id: 'i11',
+        id: 'i12',
         title: 'Healthcare',
         icon: <MedicineBoxTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
     }
