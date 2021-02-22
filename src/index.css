@@ -53,6 +53,14 @@ code {
 }
 
 /*
+ * Menu
+*/
+
+.menu {
+  padding: 5px;
+}
+
+/*
   Home Why IntroEQ section
 */
 
@@ -129,7 +137,6 @@ code {
 }
 
 .header-child {
-  height: inherit;
   display: inline-block;
   margin-left: 4px;
 }

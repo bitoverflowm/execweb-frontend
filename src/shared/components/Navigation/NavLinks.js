@@ -10,7 +10,7 @@ const NavLinks = props => {
     const { logout, isAuthenticated } = useAuth0();
 
     return (
-        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
+        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} className="menu">
             <Menu.Item key="1">
                 <NavLink to ="/" exact> Home</NavLink>
             </Menu.Item>
