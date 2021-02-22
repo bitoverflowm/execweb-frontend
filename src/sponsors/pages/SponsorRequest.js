@@ -1,4 +1,5 @@
 import React, { useState, useReducer, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -158,7 +159,17 @@ const SponsorRequest = () => {
                 id="summary"
                 data={formState.inputs}/>,
             image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
-        }
+        },
+        { 
+            title: 'Step 11', 
+            content: 
+            <div>
+                Thank You for Your Submission!
+            </div>,
+            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
+        },
+
+
 
     ];
 
@@ -172,7 +183,7 @@ const SponsorRequest = () => {
         setCurrent(current - 1);
     };
 
-    const onFinish = async event => {
+    const confirmationHandler = async event => {
         console.log('Submitting completed form: ', formState);
 
         try {
@@ -188,24 +199,25 @@ const SponsorRequest = () => {
                     headCounts : formState.inputs.headCounts.value,
                     regions    : formState.inputs.regions.value,
                     users      : formState.inputs.users.value,
-                    dateStart  : formState.inputs.dates.value[0],
-                    dateEnd    : formState.inputs.dates.value[1],
+                    dateStart  : /*formState.inputs.dates.value[0]*/'Jan 1st',
+                    dateEnd    : /*formState.inputs.dates.value[1]*/'Feb 1st',
                     topic      : formState.inputs.topic.value[0],
                     host       : formState.inputs.host.value[0],
-                    sponsor    : 1,
+                    sponsor    : user ? user.email : 1,
                 })
             });
             
             const responseData = await response.json();
             console.log('Server response: ', responseData);
+            setCurrent(current + 1);
+                        
         } catch (err) {
             console.log(err);
-        }       
-        
+        }; 
       };
 
     return (
-        <Form className = "site-layout-content" onFinish={onFinish}>
+        <Form className = "site-layout-content">
             <Steps current={current}>
                 {console.log( "hard look at formstate ", formState )}
                 {steps.map(item => (
@@ -229,9 +241,7 @@ const SponsorRequest = () => {
                                     Next
                                 </Button>
                             )}
-                            {console.log('DEVELOPMENT ENV check', process.env.REACT_APP_BACKEND_URL )}
-                            {console.log('DEVELOPMENT ENV check === ', process.env.REACT_APP_BACKEND_URL === 'http://localhost:5000/api')}
-                            {process.env.REACT_APP_BACKEND_URL === 'http://localhost:5000/api' && (
+                            {process.env.REACT_APP_BACKEND_URL === 'http://localhost:5000/api' && current < steps.length - 2 && (
                                 <Button type="primary" onClick={() => next()}>
                                     Next
                                 </Button>
@@ -241,10 +251,15 @@ const SponsorRequest = () => {
                                     Previous
                                 </Button>
                             )*/}                
-                            {current === steps.length - 1 && (
-                                <Button className="response-submit" type="primary" htmlType="submit" onClick={() => message.success('Processing complete!')}>
-                                    Done
+                            {current === steps.length - 2 && (
+                                <Button className="response-submit" type="primary" htmlType="submit" onClick={() => confirmationHandler()}>
+                                    Confirm Request
                                 </Button>
+                            )}
+                            {current === steps.length - 1 && (
+                                <Link to={`/`} className="home-call-to-action">
+                                    <Button type="primary">Back to Home</Button>
+                                </Link>
                             )}
                         </div>
                     </div>
