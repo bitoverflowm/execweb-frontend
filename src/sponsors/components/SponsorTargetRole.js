@@ -26,11 +26,11 @@ const DUMMY_JOB_TITLE = [
     },
     {
         id: 'j5',
-        title: 'Chief Scientist'
+        title: 'Software Developer'
     },
     {
         id: 'j6',
-        title: 'Chief Security Officer'
+        title: 'Chief Information Security Officer'
     },
     {
         id: 'j7',
@@ -43,6 +43,10 @@ const DUMMY_JOB_TITLE = [
     {
         id: 'j9',
         title: 'Chief Product Officer'
+    },
+    {
+        id: 'j10',
+        title: 'Director of Sales '
     }
 ];
 
@@ -63,7 +67,6 @@ const inputReducer = (state, action) => {
         default:
             return state;
     }
-
 };
 
 const SponsorTargetRole = props => {
@@ -106,16 +109,16 @@ const SponsorTargetRole = props => {
             <Row>
                 <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
                         {DUMMY_JOB_TITLE.map( title => (
-                            <div key={title.id} className="check-box">
-                                <Checkbox key={title.id} value={title.title}>
-                                    {title.title}
-                                </Checkbox>
-                            </div>
+                                <div key={title.id} className="check-box-jobs">
+                                    <Checkbox key={title.id} value={title.title}>
+                                        {title.title}
+                                    </Checkbox>
+                                </div>
                         ))}
                 </Checkbox.Group>
             </Row>
             <Row className= 'other-input'>
-                <p>Have a custom job title in mind?</p>
+                <p>Other:</p>
                 <Search placeholder="Enter job title here" allowClear enterButton="+" onSearch={onTextSubmission} />
             </Row>
             
