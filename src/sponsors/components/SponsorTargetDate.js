@@ -73,19 +73,26 @@ const SponsorTargetDate = props => {
     
     return(
         <div className = 'response-field'>
-            <p>When would you like to host your roundtable?</p>
-            <Row>
-                <DatePicker id={0} disabledDate={disabledDate} onChange={dateChange} /> 
-                <TimePicker id={1} use12Hours onChange={timeChange} format={format} />
-            </Row>
-            <Row>
-                <DatePicker id={2} disabledDate={disabledDate} onChange={dateChange} /> 
-                <TimePicker id={3} use12Hours onChange={timeChange} format={format} />
-            </Row>
-            <Row>
-                <DatePicker id={4} disabledDate={disabledDate} onChange={dateChange} /> 
-                <TimePicker id={5} use12Hours onChange={timeChange} format={format} />
-            </Row>
+            <p>Provide 3 dates and times that you would ideally like the roundtable to take place </p>
+            <p>(Please provide at least 2 weeks from today for us to recruit the right execs):</p>
+            <div className='date-time-wrapper'>
+                <Row>
+                    <p className="date-time-heading"> Date Selection 1:</p>
+                    <DatePicker id={0} disabledDate={disabledDate} onChange={dateChange} /> 
+                    <TimePicker id={1} use12Hours onChange={timeChange} format={format} />
+                </Row>
+                <Row>
+                    <p className="date-time-heading"> Date Selection 2:</p>
+                    <DatePicker id={2} disabledDate={disabledDate} onChange={dateChange} /> 
+                    <TimePicker id={3} use12Hours onChange={timeChange} format={format} />
+                </Row>
+                <Row>
+                    <p className="date-time-heading"> Date Selection 3:</p>
+                    <DatePicker id={4} disabledDate={disabledDate} onChange={dateChange} /> 
+                    <TimePicker id={5} use12Hours onChange={timeChange} format={format} />
+                </Row>
+            </div>
+            
         </div>
     );   
 }

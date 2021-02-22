@@ -303,4 +303,20 @@ code {
   font-weight: bolder;
 }
 
+/*
+* Start of datetime formatting
+*/
 
+.date-time-wrapper{
+  margin: auto;
+}
+
+.date-time-wrapper > * {
+  padding-top: 5px;
+}
+
+.date-time-heading {
+  font-weight: bold;
+  padding-right: 5px;
+  padding-top: 7px;
+}
