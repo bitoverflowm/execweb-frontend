@@ -265,7 +265,7 @@ const SponsorRequest = () => {
                             )*/}                
                             {current === steps.length - 2 && (
                                 <Button className="response-submit" type="primary" htmlType="submit" onClick={() => confirmationHandler()}>
-                                    Confirm Request
+                                    Submit Application
                                 </Button>
                             )}
                             {current === steps.length - 1 && (

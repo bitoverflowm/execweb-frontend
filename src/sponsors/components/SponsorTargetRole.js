@@ -105,16 +105,16 @@ const SponsorTargetRole = props => {
 
     return(
         <div className = 'response-field'>
-            <p>What are the job titles of your target clients?</p>
             <Row>
                 <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
-                        {DUMMY_JOB_TITLE.map( title => (
-                                <div key={title.id} className="check-box-jobs">
-                                    <Checkbox key={title.id} value={title.title}>
-                                        {title.title}
-                                    </Checkbox>
-                                </div>
-                        ))}
+                    <p>What are the job titles of your target clients?</p>
+                    {DUMMY_JOB_TITLE.map( title => (
+                            <div key={title.id} className="check-box-jobs">
+                                <Checkbox key={title.id} value={title.title}>
+                                    {title.title}
+                                </Checkbox>
+                            </div>
+                    ))}
                 </Checkbox.Group>
             </Row>
             <Row className= 'other-input'>

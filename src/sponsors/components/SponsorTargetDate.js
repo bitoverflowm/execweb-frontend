@@ -79,17 +79,17 @@ const SponsorTargetDate = props => {
                 <Row>
                     <p className="date-time-heading"> Date Selection 1:</p>
                     <DatePicker id={0} disabledDate={disabledDate} onChange={dateChange} /> 
-                    <TimePicker id={1} use12Hours onChange={timeChange} format={format} />
+                    <TimePicker id={1} use12Hours minuteStep={15} onChange={timeChange} format={format} />
                 </Row>
                 <Row>
                     <p className="date-time-heading"> Date Selection 2:</p>
                     <DatePicker id={2} disabledDate={disabledDate} onChange={dateChange} /> 
-                    <TimePicker id={3} use12Hours onChange={timeChange} format={format} />
+                    <TimePicker id={3} use12Hours minuteStep={15} onChange={timeChange} format={format} />
                 </Row>
                 <Row>
                     <p className="date-time-heading"> Date Selection 3:</p>
                     <DatePicker id={4} disabledDate={disabledDate} onChange={dateChange} /> 
-                    <TimePicker id={5} use12Hours onChange={timeChange} format={format} />
+                    <TimePicker id={5} use12Hours minuteStep={15} onChange={timeChange} format={format} />
                 </Row>
             </div>
             
