@@ -11,6 +11,8 @@ import howItWorks from './shared/assets/jumbo-home/how-it-works.jpg';
 import homeWhy from './shared/assets/jumbo-home/home-why.jpg';
 import logo from './shared/assets/logo2.png';
 
+import './index.css';
+
 const { Title } = Typography;
 
 const Home = () => {
@@ -21,11 +23,11 @@ const Home = () => {
                     <img src={jumboBig} />
                     <Row >
                         <Link to={`/sponsorHome/`} className="home-call-to-action">
-                            <Button type="primary">Apply to Sponsor</Button>
+                            <a className="button-execweb-brand"> Apply to Sponsor </a>
                         </Link>
                     </Row>
                     <Row>
-                        <Title level={3} className="home-about-heading">How it Works</Title>
+                        <Title level={3} className="home-about-heading"> How it Works </Title>
                     </Row>
                     <Row>
                         <img src={howItWorks} className="home-about-content"/>
@@ -43,17 +45,16 @@ const Home = () => {
                         </Col>
                         <Col span={4} className="home-footer-col-wrapper">
                             <Row className="home-footer-headers">Resources</Row>
-                            <Row>Support</Row>
-                            <Row>Blog</Row>
+                            <Row className="home-footer-links"><a href="mailto:support@execweb.com">Support</a></Row>
+                            <Row className="home-footer-links"><a href="https://www.introeq.com/">Community</a></Row>
                             <Row>Privacy</Row>
                             <Row>Terms</Row>
                             <Row>Data processing</Row>
                         </Col>
                         <Col span={4} className="home-footer-col-wrapper">
                             <Row className="home-footer-headers">Connect With Us</Row>
-                            <Row><FontAwesomeIcon className="home-footer-icon" icon={faFacebook} size="lg"/> {"  "}Facebook</Row>
-                            <Row><FontAwesomeIcon className="home-footer-icon" icon={faTwitter} size="lg"/>Twitter</Row>
-                            <Row><FontAwesomeIcon className="home-footer-icon" icon={faInstagram} size="lg" />Instagram</Row>
+                            <Row className="home-footer-links"><a href="https://www.facebook.com/introeq"><FontAwesomeIcon className="home-footer-icon" icon={faFacebook} size="lg"/> Facebook</a></Row>
+                            <Row className="home-footer-links"><a href="https://twitter.com/IntroEQ"><FontAwesomeIcon className="home-footer-icon" icon={faTwitter} size="lg"/>Twitter</a></Row>
                         </Col>
                         <Col span={8} className="home-footer-col-wrapper">
                             <Row className="home-footer-headers">Need Help?</Row>

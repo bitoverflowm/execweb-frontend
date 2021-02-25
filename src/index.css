@@ -31,6 +31,16 @@ code {
   margin: auto;
 }
 
+.button-execweb-brand {
+  color: #000000;
+  border-color: #000000;
+  background-color: #fff;
+  border: 2px solid;
+  border-radius: 100px;
+  padding: 0.5em 2em;
+  animation: .5s 0.75s animation-fadeIn ease-out forwards;
+}
+
 
 /*
   Home header About Section
@@ -103,6 +113,15 @@ code {
   padding-right: 3px;
   padding-top: 3px;
 }
+
+.home-footer-links {
+  color: inherit;
+}
+
+.home-footer-links > * {
+  color: inherit;
+}
+
 
 /*
 * End of home footer
