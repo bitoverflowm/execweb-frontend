@@ -26,7 +26,7 @@ const DUMMY_INDUSTRIES = [
     },
     {
         id: 'i4',
-        title: 'Energy',
+        title: 'Heath, Wellness & Fitness',
         icon: <FireTwoTone className="check-box-industry-icon"/>
     },
     {
@@ -56,7 +56,7 @@ const DUMMY_INDUSTRIES = [
     },
     {
         id: 'i10',
-        title: 'Sanitation',
+        title: 'Management Consulting',
         icon: <FilterTwoTone className="check-box-industry-icon"/>
     },
     {
@@ -68,7 +68,23 @@ const DUMMY_INDUSTRIES = [
         id: 'i12',
         title: 'Healthcare',
         icon: <MedicineBoxTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
+    },
+    {
+        id: 'i13',
+        title: 'Insurance',
+        icon: <MedicineBoxTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
+    },
+    {
+        id: 'i14',
+        title: 'Building Materials',
+        icon: <MedicineBoxTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
+    },
+    {
+        id: 'i15',
+        title: 'Government Administration',
+        icon: <MedicineBoxTwoTone className="check-box-industry-icon" twoToneColor="#60C6BE"/>
     }
+
 
 ]; 
 

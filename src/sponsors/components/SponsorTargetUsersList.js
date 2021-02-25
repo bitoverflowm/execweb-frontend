@@ -1,8 +1,9 @@
 import React, { useReducer, useEffect, useState } from 'react';
+import NumberFormat from 'react-number-format';
 
 import '../../index.css';
 
-import { Checkbox, Row, Col, Typography, Avatar, Spin, Popover, Button, Tag, Divider, Descriptions, List } from 'antd';
+import { Checkbox, Row, Col, Typography, Avatar, Spin, Popover, Button, Tag, List } from 'antd';
 
 import { UserOutlined } from '@ant-design/icons';
 
@@ -135,7 +136,7 @@ const SponsorTargetUsersList = props => {
                                                     <Text><span className="user-list-sub-heading">Location:</span> {item.item.item.State}</Text>
                                                 </Row>
                                                 <Row className="tag-wrapper">
-                                                    <Tag >Est. Employees: {item.item.item["# of Employees"]}</Tag>
+                                                    <Tag >Est. Employees: <NumberFormat value={item.item.item["# of Employees"]} thousandSeparator={true} displayType={'text'} /></Tag>
                                                 </Row>
                                                 <Row className="tag-wrapper">
                                                     <Tag>Industry: {item.item.item["Industry"]}</Tag>
