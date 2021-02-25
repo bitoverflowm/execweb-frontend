@@ -99,49 +99,49 @@ const SponsorTargetUsersList = props => {
                                 }}
                                 renderItem={
                                     item => (
-                                        <List.Item key={item.item["_id"]} className="user-list-check-box">
+                                        <List.Item key={item.item.item["_id"]} className="user-list-check-box">
                                             <Col span={2} className="check-box-style">
-                                                <Checkbox value={ item.item["_id"] }/>
+                                                <Checkbox value={ item.item.item["_id"] }/>
                                             </Col>
                                             <Col span={6}>
                                                 <div className="avatar-wrapper">
                                                     <Avatar size={100} 
-                                                        src= {item.item["Personal Photo"] !== 'Image NA' && item.item["Personal Photo"] }
-                                                        icon = { item.item["Personal Photo"] === 'Image NA' && <UserOutlined /> }
+                                                        src= {item.item.item["Personal Photo"] !== 'Image NA' && item.item.item["Personal Photo"] }
+                                                        icon = { item.item.item["Personal Photo"] === 'Image NA' && <UserOutlined /> }
                                                             />
                                                 </div>
                                                 <div className="avatar-wrapper">
-                                                    <Popover content={item.item["Personal Description"]} title="Description" overlayClassName="popover-content">
+                                                    <Popover content={item.item.item["Personal Description"]} title="Description" overlayClassName="popover-content">
                                                         <Button type="primary">Description</Button>
                                                     </Popover>
                                                 </div>
                                                 <div className="avatar-wrapper">
-                                                    <Popover content={item.item["Experience"]} title="Experience" overlayClassName="popover-content">
+                                                    <Popover content={item.item.item["Experience"]} title="Experience" overlayClassName="popover-content">
                                                         <Button>Experience</Button>
                                                     </Popover>
                                                 </div>
                                             </Col>
                                             <Col span={17}>
                                                 <Row>
-                                                    <Text className="user-list-sub-heading">{" " + item.item["First Name"] + " " + item.item["Last Name"]}</Text>
+                                                    <Text className="user-list-sub-heading">{" " + item.item.item["First Name"] + " " + item.item.item["Last Name"]}</Text>
                                                 </Row>
                                                 <Row>
-                                                    <Text><span className="user-list-sub-heading">Title</span>: {item.item.Position}</Text>
+                                                    <Text><span className="user-list-sub-heading">Title</span>: {item.item.item.Position}</Text>
                                                 </Row>
                                                 <Row>
-                                                    <Text><span className="user-list-sub-heading">Company:</span> {item.item.Company}</Text>
+                                                    <Text><span className="user-list-sub-heading">Company:</span> {item.item.item.Company}</Text>
                                                 </Row>   
                                                 <Row>
-                                                    <Text><span className="user-list-sub-heading">Location:</span> {item.item.State}</Text>
+                                                    <Text><span className="user-list-sub-heading">Location:</span> {item.item.item.State}</Text>
                                                 </Row>
                                                 <Row className="tag-wrapper">
-                                                    <Tag >Est. Employees: {item.item["# of Employees"]}</Tag>
+                                                    <Tag >Est. Employees: {item.item.item["# of Employees"]}</Tag>
                                                 </Row>
                                                 <Row className="tag-wrapper">
-                                                    <Tag>Industry: {item.item["Industry"]}</Tag>
+                                                    <Tag>Industry: {item.item.item["Industry"]}</Tag>
                                                 </Row>
                                                 <Row className="tag-wrapper">
-                                                    <Tag>Est. Revenue: {item.item["Estimated Revenues"]}</Tag>
+                                                    <Tag>Est. Revenue: {item.item.item["Estimated Revenues"]}</Tag>
                                                 </Row> 
                                             </Col>
                                         </List.Item>
