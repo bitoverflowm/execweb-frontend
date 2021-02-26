@@ -21,13 +21,10 @@ const Home = () => {
             <Layout>
                 <Content className="home-jumbo-content">
                     <img src={jumboBig} />
-                    <Row >
+                    <Row style={{paddingBottom : '10px', marginTop: '-15px'}} >
                         <Link to={`/sponsorHome/`} className="home-call-to-action">
                             <a className="button-execweb-brand"> Get in front of relevant executives </a>
                         </Link>
-                    </Row>
-                    <Row>
-                        <Title level={3} className="home-about-heading"> How it Works </Title>
                     </Row>
                     <Row>
                         <img src={howItWorks} className="home-about-content"/>
