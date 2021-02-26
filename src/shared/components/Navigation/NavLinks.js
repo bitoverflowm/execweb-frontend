@@ -14,6 +14,9 @@ const NavLinks = props => {
             <Menu.Item key="1">
                 <NavLink to ="/" exact> Home</NavLink>
             </Menu.Item>
+            <Menu.Item key="2">
+                <a href="https://www.introeq.com/" className="home-footer-links"> Join Community</a>
+            </Menu.Item>
             {isAuthenticated && (
                 <Menu.Item key="5">
                     <Button onClick={() => logout()}> 

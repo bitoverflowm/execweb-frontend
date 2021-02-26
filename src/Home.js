@@ -23,7 +23,7 @@ const Home = () => {
                     <img src={jumboBig} />
                     <Row >
                         <Link to={`/sponsorHome/`} className="home-call-to-action">
-                            <a className="button-execweb-brand"> Apply to Sponsor </a>
+                            <a className="button-execweb-brand"> Get In Front Of Decision Makers </a>
                         </Link>
                     </Row>
                     <Row>

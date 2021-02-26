@@ -32,9 +32,11 @@ code {
 }
 
 .button-execweb-brand {
-  color: #000000;
+  font-size: larger;
+  font-weight: bolder;
+  color: #fff;
   border-color: #000000;
-  background-color: #fff;
+  background-color: #0095FF;
   border: 2px solid;
   border-radius: 100px;
   padding: 0.5em 2em;

@@ -66,7 +66,7 @@ const SponsorTargetDate = props => {
 
     // Can not select days before today and today
     const disabledDate = (current) => {        
-        return current && current < moment().endOf('day');
+        return current && current < moment().add(14, 'd').endOf('day');
     };
 
     const format = 'h:mm a';
@@ -74,7 +74,7 @@ const SponsorTargetDate = props => {
     return(
         <div className = 'response-field'>
             <p>Provide 3 dates and times that you would ideally like the roundtable to take place </p>
-            <p>(Please provide at least 2 weeks from today for us to recruit the right execs):</p>
+            <p>(Allow at least 2 weeks from today for us to recruit the right execs):</p>
             <div className='date-time-wrapper'>
                 <Row>
                     <p className="date-time-heading"> Date Selection 1:</p>

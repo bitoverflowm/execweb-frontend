@@ -156,24 +156,13 @@ const SponsorRequest = () => {
         { 
             title: 'Step 10', 
             content: 
-            <SponsorSummary 
-                id="summary"
-                data={formState.inputs}/>,
-            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
-        },
-        { 
-            title: 'Step 11', 
-            content: 
             <div className='sponsor-thankyou'>
                 <h1>Thank You for Your Submission!</h1>
                 <p>We will review your application and get back to you as soon as possible</p>
                 <CheckCircleTwoTone className="sponsor-thankyou-icon" twoToneColor="#52c41a"/>
             </div>,
             image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
-        },
-
-
-
+        }
     ];
 
     const next = () => {

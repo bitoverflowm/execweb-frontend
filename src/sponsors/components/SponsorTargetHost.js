@@ -44,8 +44,7 @@ const SponsorTargetHost = props => {
 
     return(
         <div className = 'response-field'>
-            <p>Do you want us to source a moderator for the roundtable? </p>
-            <p>Or would you prefer to ask one of your clients' tech execs to moderate?</p>
+            <p>Do you want us to source a host/moderator for the roundtable? </p>
             <Radio.Group onChange={clickHandler}>
                 <div span={12} className="check-box-generic">
                     <Radio value={1}>                               
@@ -54,7 +53,7 @@ const SponsorTargetHost = props => {
                 </div>
                 <div span={12} className="check-box-generic">
                     <Radio value={0}>
-                        <Text strong>Please provide me with a host. </Text> 
+                        <Text strong>Please source host for me. </Text> 
                     </Radio>
                 </div>
             </Radio.Group> 
