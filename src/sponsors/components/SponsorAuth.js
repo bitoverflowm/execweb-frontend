@@ -51,8 +51,8 @@ const SponsorAuth = props => {
 
     return(
         <div className = 'response-field'>
-            <p>We will facilitate virtual roundtables with tech execs in your target market who are actively looking for new vendors.</p>
-            <p>You will need to answer a few questions, takes less than 2 minutes to complete, so that we can get you in front of the 5-10 most relevant to you tech executives.</p>
+            <p>We will facilitate virtual roundtables with 5-10 tech execs in your target market who are actively looking for new vendors.</p>
+            <p>You will need to answer a few questions, takes less than 2 minutes to complete, so that we know who are the most relevant tech executives to you.</p>
             <p>You will need to join using your LinkedIn account since we are an exclusive professional platform and need to confirm everyone's professional identity.</p>
             <p>Let's begin... </p>
             {console.log('props value in linked validation: ', props.value)}

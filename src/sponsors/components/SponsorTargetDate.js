@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import '../../index.css';
 
-import { DatePicker, TimePicker, Row } from 'antd';
+import { DatePicker, TimePicker, Row, Col } from 'antd';
 
 const inputReducer = (state, action) => {
     switch (action.type) {
@@ -77,19 +77,19 @@ const SponsorTargetDate = props => {
             <p>(Allow at least 2 weeks from today for us to recruit the right execs):</p>
             <div className='date-time-wrapper'>
                 <Row>
-                    <p className="date-time-heading"> Date Selection 1:</p>
-                    <DatePicker id={0} disabledDate={disabledDate} onChange={dateChange} /> 
-                    <TimePicker id={1} use12Hours minuteStep={15} onChange={timeChange} format={format} />
+                    <Col xs={24} md={6}><p className="date-time-heading"> Date Selection 1:</p></Col>
+                    <Col xs={24} md={6}><DatePicker id={0} disabledDate={disabledDate} onChange={dateChange} /> </Col>
+                    <Col xs={24} md={6}><TimePicker id={1} use12Hours minuteStep={15} onChange={timeChange} format={format} /></Col>
                 </Row>
                 <Row>
-                    <p className="date-time-heading"> Date Selection 2:</p>
-                    <DatePicker id={2} disabledDate={disabledDate} onChange={dateChange} /> 
-                    <TimePicker id={3} use12Hours minuteStep={15} onChange={timeChange} format={format} />
+                    <Col xs={24} md={6}><p className="date-time-heading"> Date Selection 2:</p></Col>
+                    <Col xs={24} md={6}><DatePicker id={2} disabledDate={disabledDate} onChange={dateChange} /></Col>
+                    <Col xs={24} md={6}><TimePicker id={3} use12Hours minuteStep={15} onChange={timeChange} format={format} /></Col>
                 </Row>
                 <Row>
-                    <p className="date-time-heading"> Date Selection 3:</p>
-                    <DatePicker id={4} disabledDate={disabledDate} onChange={dateChange} /> 
-                    <TimePicker id={5} use12Hours minuteStep={15} onChange={timeChange} format={format} />
+                    <Col xs={24} md={6}><p className="date-time-heading"> Date Selection 3:</p></Col>
+                    <Col xs={24} md={6}><DatePicker id={4} disabledDate={disabledDate} onChange={dateChange} /> </Col>
+                    <Col xs={24} md={6}><TimePicker id={5} use12Hours minuteStep={15} onChange={timeChange} format={format} /></Col>
                 </Row>
             </div>
             
