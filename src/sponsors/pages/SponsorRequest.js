@@ -227,7 +227,7 @@ const SponsorRequest = () => {
             </Steps>
             
             <Row>
-                <Col span={12}>
+                <Col md={24} lg={12}>
                     <div className="response-field-wrapper">
                         <Row>
                             <img src={logo} alt="Logo" className="logo"/>
@@ -265,7 +265,7 @@ const SponsorRequest = () => {
                         </div>
                     </div>
                 </Col>
-                <Col span={10}>
+                <Col md={24} lg={10}>
                     {steps[current].image}
                 </Col>
             </Row>

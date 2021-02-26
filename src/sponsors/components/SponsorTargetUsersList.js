@@ -85,7 +85,7 @@ const SponsorTargetUsersList = props => {
     return(
         <div className = 'response-field'> 
             <p>The following executives best match your target client parameters.</p>
-            <p className="text"> Select up to 15 tech executives you would like to have attend your virtual round table you sponsor.</p>
+            <p className="text"> Select up to 15 tech executives you would like to attend your virtual round table.</p>
                 
             <Row>
                 {!isLoading && filteredUsers
@@ -101,10 +101,10 @@ const SponsorTargetUsersList = props => {
                                 renderItem={
                                     item => (
                                         <List.Item key={item.item.item["_id"]} className="user-list-check-box">
-                                            <Col span={2} className="check-box-style">
+                                            <Col md={1} lg={2} className="check-box-style">
                                                 <Checkbox value={ item.item.item["_id"] }/>
                                             </Col>
-                                            <Col span={6}>
+                                            <Col md={5} lg={6}>
                                                 <div className="avatar-wrapper">
                                                     <Avatar size={100} 
                                                         src= {item.item.item["Personal Photo"] !== 'Image NA' && item.item.item["Personal Photo"] }
@@ -122,7 +122,7 @@ const SponsorTargetUsersList = props => {
                                                     </Popover>
                                                 </div>
                                             </Col>
-                                            <Col span={17}>
+                                            <Col md={18} lg={16} className="details-wrapper">
                                                 <Row>
                                                     <Text className="user-list-sub-heading">{" " + item.item.item["First Name"] + " " + item.item.item["Last Name"]}</Text>
                                                 </Row>

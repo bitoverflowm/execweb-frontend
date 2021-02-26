@@ -13,6 +13,7 @@ code {
 }
 
 .logo {
+  max-width: 300px;
   padding: 10px;
   margin: auto;
 }
@@ -306,6 +307,10 @@ code {
 .avatar-wrapper {
   padding: 3px;
   text-align: center;
+}
+
+.details-wrapper {
+  padding-left: 10px;
 }
 
 .popover-content {

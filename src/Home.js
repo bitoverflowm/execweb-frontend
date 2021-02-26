@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-import { Button, Layout, Row, Col, Typography } from 'antd';
+import { Layout, Row, Col, Typography } from 'antd';
 import { Content, Footer} from 'antd/lib/layout/layout';
 
 import jumboBig from './shared/assets/jumbo-home/jumbo-main.jpg';
@@ -38,12 +38,12 @@ const Home = () => {
                 </Content>
                 <Footer className="home-footer" style={{background : '#fff'}}>
                     <Row>
-                        <Col span={8}>
+                        <Col xs={24} xl={8}>
                             <div className="home-footer-wrapper">
                                 <img src={logo} alt="Logo" className="home-footer-logo"/>
                             </div>                            
                         </Col>
-                        <Col span={4} className="home-footer-col-wrapper">
+                        <Col xs={24} xl={4} className="home-footer-col-wrapper">
                             <Row className="home-footer-headers">Resources</Row>
                             <Row className="home-footer-links"><a href="mailto:support@execweb.com">Support</a></Row>
                             <Row className="home-footer-links"><a href="https://www.introeq.com/">Community</a></Row>
@@ -51,12 +51,12 @@ const Home = () => {
                             <Row>Terms</Row>
                             <Row>Data processing</Row>
                         </Col>
-                        <Col span={4} className="home-footer-col-wrapper">
+                        <Col xs={24} xl={4} className="home-footer-col-wrapper">
                             <Row className="home-footer-headers">Connect With Us</Row>
                             <Row className="home-footer-links"><a href="https://www.facebook.com/introeq"><FontAwesomeIcon className="home-footer-icon" icon={faFacebook} size="lg"/> Facebook</a></Row>
                             <Row className="home-footer-links"><a href="https://twitter.com/IntroEQ"><FontAwesomeIcon className="home-footer-icon" icon={faTwitter} size="lg"/>Twitter</a></Row>
                         </Col>
-                        <Col span={8} className="home-footer-col-wrapper">
+                        <Col xs={24} xl={8} className="home-footer-col-wrapper">
                             <Row className="home-footer-headers">Need Help?</Row>
                             <Row>Let us know if you have any questions or comments and our customer success team will get back to you as soon as possible.</Row>
                             <Row>support@introeq.com</Row>
