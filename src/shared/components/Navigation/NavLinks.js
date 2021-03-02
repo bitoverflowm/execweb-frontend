@@ -19,7 +19,7 @@ const NavLinks = props => {
                     </Menu.Item>
                 }
             <Menu.Item key="2">
-                <a href="https://www.introeq.com/" className="home-footer-links"> Join Community</a>
+                <a href="https://www.introeq.com/" className="home-footer-links"> Request Access To Our Community</a>
             </Menu.Item>
             {isAuthenticated && (
                 <Menu.Item key="5">
