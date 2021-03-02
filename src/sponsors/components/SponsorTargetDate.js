@@ -73,7 +73,7 @@ const SponsorTargetDate = props => {
     
     return(
         <div className = 'response-field'>
-            <p>Provide 3 dates and times that you would ideally like the roundtable to take place </p>
+            <p> Provide 3 dates and times that you would like the roundtable to take place on: </p>
             <p>(Allow at least 2 weeks from today for us to recruit the right execs):</p>
             <div className='date-time-wrapper'>
                 <Row>

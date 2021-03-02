@@ -23,7 +23,7 @@ const Home = () => {
                     <img src={jumboBig} />
                     <Row style={{paddingBottom : '10px', marginTop: '-15px'}} >
                         <Link to={`/sponsorHome/`} className="home-call-to-action">
-                            <a className="button-execweb-brand"> Get in front of relevant executives </a>
+                            <a className="button-execweb-brand"> Request Virtual Roundtable </a>
                         </Link>
                     </Row>
                     <Row>
@@ -44,9 +44,10 @@ const Home = () => {
                             <Row className="home-footer-headers">Resources</Row>
                             <Row className="home-footer-links"><a href="mailto:support@execweb.com">Support</a></Row>
                             <Row className="home-footer-links"><a href="https://www.introeq.com/">Community</a></Row>
-                            <Row>Privacy</Row>
-                            <Row>Terms</Row>
-                            <Row>Data processing</Row>
+                            <Row className="home-footer-links"><a href="https://drive.google.com/file/d/1qVmOW6uthilynWdo7_OsO4vHXzpDN_XA/view">Privacy</a></Row>
+                            <Row className="home-footer-links"><a href="https://drive.google.com/file/d/1qVmOW6uthilynWdo7_OsO4vHXzpDN_XA/view">Terms</a></Row>
+                            <Row className="home-footer-links"><a href="https://drive.google.com/file/d/1qVmOW6uthilynWdo7_OsO4vHXzpDN_XA/view">Data processing</a></Row>
+                            
                         </Col>
                         <Col xs={24} xl={4} className="home-footer-col-wrapper">
                             <Row className="home-footer-headers">Connect With Us</Row>
