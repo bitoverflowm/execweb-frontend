@@ -85,7 +85,7 @@ const SponsorRequest = () => {
                         value={formState.inputs.username}
                         />,
             image: <img src={formImage0} alt="formImage0" className="response-field-image" />,
-            valid: formState.inputs.username.isValid                        
+            valid: true                        
         },
         { 
             title: 'Step 2', 
@@ -93,7 +93,7 @@ const SponsorRequest = () => {
                 <SponsorTargetRole
                     id="roles"
                     formUpdateHandler={formUpdateHandler}
-                    value={formState.inputs.roles}/>,
+                    value={formState.inputs.roles.value}/>,
             image: <img src={formImage1} alt="formImage1" className="response-field-image" />,
             valid: formState.inputs.roles.isValid
         },
@@ -103,7 +103,7 @@ const SponsorRequest = () => {
             <SponsorTargetIndustry 
                 id="industries"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.industries}/>,
+                value={formState.inputs.industries.value}/>,
             image: <img src={formImage2} alt="formImage2" className="response-field-image" />,
             valid: formState.inputs.industries.isValid
         },
@@ -113,7 +113,7 @@ const SponsorRequest = () => {
             <SponsorTargetHeadCount 
                 id="headCounts"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.headCounts}/>,
+                value={formState.inputs.headCounts.value}/>,
             image: <img src={formImage3} alt="formImage3" className="response-field-image" />,
             valid: formState.inputs.headCounts.isValid 
         },
@@ -123,7 +123,7 @@ const SponsorRequest = () => {
             <SponsorTargetRegion
                 id="regions"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.regions}/>,
+                value={formState.inputs.regions.value}/>,
             image: <img src={formImage4} alt="formImage4" className="response-field-image" />,
             valid: formState.inputs.regions.isValid
         },
@@ -153,7 +153,7 @@ const SponsorRequest = () => {
             <SponsorTargetTopic 
                 id="topic"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.topic}/>,
+                value={formState.inputs.topic.value}/>,
             image: <img src={formImage6} alt="formImage6" className="response-field-image"/>,
             valid: formState.inputs.topic.isValid
         },
@@ -163,7 +163,7 @@ const SponsorRequest = () => {
             <SponsorTargetHost 
                 id="host"
                 formUpdateHandler={formUpdateHandler}
-                value={formState.inputs.host}/>,
+                value={formState.inputs.host.value}/>,
             image: <img src={formImage6} alt="formImage6" className="response-field-image"/>,
             valid: formState.inputs.host.isValid
         },
@@ -262,11 +262,11 @@ const SponsorRequest = () => {
                                     Next
                                 </Button>
                             )}
-                            {/*current > 0 && (
-                                <Button onClick={() => prev()}>
+                            {current > 0 && !(current === 6 || current === 7) && (
+                                <Button type="primary" onClick={() => prev()}>
                                     Previous
                                 </Button>
-                            )*/}                
+                            )}                
                             {current === steps.length - 2 && (
                                 <Button className="response-submit" type="primary" htmlType="submit" onClick={() => confirmationHandler()}>
                                     Submit Application

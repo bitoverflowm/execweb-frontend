@@ -64,7 +64,7 @@ const SponsorTargetUsersList = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
         value: '', 
-        isValid: false
+        isValid: props.value.users.value.length > 0 ? true : false
     });
 
     const { id, formUpdateHandler } = props;

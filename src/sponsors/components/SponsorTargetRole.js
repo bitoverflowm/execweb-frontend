@@ -72,10 +72,12 @@ const inputReducer = (state, action) => {
 const SponsorTargetRole = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: '',
+        value: props.value,
         textinput: '',
-        isValid: false
+        isValid: props.value.length > 0 ? true : false
     });
+
+    console.log("are we populating correctly", inputState);
 
     const { id, formUpdateHandler } = props;
     const { value, textinput, isValid } = inputState;
@@ -106,7 +108,7 @@ const SponsorTargetRole = props => {
     return(
         <div className = 'response-field'>
             <Row>
-                <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
+                <Checkbox.Group onChange={clickHandler} defaultValue={inputState.value} className="check-box-wrapper">
                     <p>What are the job titles of your target clients?</p>
                     {DUMMY_JOB_TITLE.map( title => (
                             <div key={title.id} className="check-box-jobs">

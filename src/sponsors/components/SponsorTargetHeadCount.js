@@ -57,8 +57,8 @@ const inputReducer = (state, action) => {
 const SponsorTargetHeadCount = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: '', 
-        isValid: false
+        value: props.value, 
+        isValid: props.value.length > 0 ? true : false
     });
 
     const { id, formUpdateHandler } = props;
@@ -82,7 +82,7 @@ const SponsorTargetHeadCount = props => {
         <div className = 'response-field'>
             <p>What is the ideal number of employees of your target client accounts?</p>
             <Row >
-                <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
+                <Checkbox.Group onChange={clickHandler} defaultValue={inputState.value} className="check-box-wrapper" >
                     {DUMMY_HEAD_COUNT.map( title => (
                         <div key={title.id} className="check-box-headcount">
                                 <Checkbox value={title.title}>

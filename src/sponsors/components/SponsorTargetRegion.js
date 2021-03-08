@@ -55,8 +55,8 @@ const inputReducer = (state, action) => {
 const SponsorTargetRegion = props => {
     
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: '', 
-        isValid: false
+        value: props.value, 
+        isValid: props.value.length > 0 ? true : false
     });
 
     const { id, formUpdateHandler } = props;
@@ -78,7 +78,7 @@ const SponsorTargetRegion = props => {
         <div className = 'response-field'>
             <p>What US regions are your target accounts headquatered in?</p>
             <Row >
-                <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
+                <Checkbox.Group onChange={clickHandler} defaultValue={inputState.value} className="check-box-wrapper">
                     {DUMMY_REGIONS.map( title => (
                         <div key={title.id} className="check-box-generic">
                                 <Checkbox value={title.title}>

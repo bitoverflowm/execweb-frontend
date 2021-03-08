@@ -31,9 +31,9 @@ const inputReducer = (state, action) => {
 const SponsorTargetTopic = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: '',
+        value: props.value,
         textinput: '',
-        isValid: false
+        isValid: props.value !== '' ? true : false
     });
 
     const { id, formUpdateHandler } = props;
@@ -70,7 +70,7 @@ const SponsorTargetTopic = props => {
             </Row>
             
             <Row>
-                <Radio.Group onChange={clickHandler}>
+                <Radio.Group onChange={clickHandler} defaultValue={inputState.value === 0 && 0}>
                     <div className="check-box-generic">
                         <Radio value={0}>
                             <Text strong>Please provide me with a topic </Text> 

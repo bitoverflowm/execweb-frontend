@@ -23,8 +23,8 @@ const inputReducer = (state, action) => {
 const SponsorTargetHost = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: '', 
-        isValid: false
+        value: props.value, 
+        isValid: props.value !== '' ? true : false
     });
 
     const { id, formUpdateHandler } = props;
@@ -45,7 +45,7 @@ const SponsorTargetHost = props => {
     return(
         <div className = 'response-field'>
             <p>Do you want us to source a host/moderator for the roundtable? </p>
-            <Radio.Group onChange={clickHandler}>
+            <Radio.Group onChange={clickHandler} defaultValue={inputState.value !== '' && inputState.value}>
                 <div span={12} className="check-box-generic">
                     <Radio value={1}>                               
                         <Text strong>I have my own host. </Text>

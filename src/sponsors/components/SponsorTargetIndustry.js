@@ -111,9 +111,9 @@ const inputReducer = (state, action) => {
 const SponsorTargetIndustry = props => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: '', 
+        value: props.value,
         textinput: '',
-        isValid: false
+        isValid: props.value.length > 0 ? true : false
     });
 
     const { id, formUpdateHandler } = props;
@@ -145,7 +145,7 @@ const SponsorTargetIndustry = props => {
         <div className = 'response-field'>
             <p>What industries are your target clients in?</p>
             <Row>
-                <Checkbox.Group onChange={clickHandler} className="check-box-wrapper">
+                <Checkbox.Group onChange={clickHandler} defaultValue={inputState.value} className="check-box-wrapper">
                     {DUMMY_INDUSTRIES.map( title => (
                         <div key={title.id} className="check-box-generic">
                             <Checkbox key={title.id} value={title.title}>
