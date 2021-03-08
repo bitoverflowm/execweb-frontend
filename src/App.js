@@ -8,6 +8,7 @@ import './index.css';
 
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import Home from './Home';
+import logo from './mainLogo.png';
 
 
 //Lazy imports:
@@ -30,6 +31,7 @@ const App = () => {
           <Router>
             <Layout >
               <Header className = "site-layout-header" style={{backgroundColor: '#fff'}}>
+                <div className="logo-header"><img src={logo} /></div>
                 <MainNavigation />
               </Header>              
               <Content className = "site-layout-content">

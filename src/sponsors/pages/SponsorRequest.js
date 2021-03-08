@@ -57,7 +57,13 @@ const SponsorRequest = () => {
             inputs: {
                 username: { value: '', isValid: false},
                 roles: { value: '', isValid: false},
-                industries: { value: '', isValid: false}
+                industries: { value: '', isValid: false},
+                headCounts: { value: '', isValid: false},
+                regions: { value: '', isValid: false},
+                users: { value: '', isValid: false},
+                dates: { value: '', isValid: false},
+                topic: { value: '', isValid: false},
+                host: { value: '', isValid: false}
             }, isValid: false});
 
     const formUpdateHandler = useCallback(( id, value, isValid, textInput = null ) => { 
@@ -78,8 +84,8 @@ const SponsorRequest = () => {
                         formUpdateHandler={formUpdateHandler} 
                         value={formState.inputs.username}
                         />,
-            image: <img src={formImage0} alt="formImage0" className="response-field-image" />
-                        
+            image: <img src={formImage0} alt="formImage0" className="response-field-image" />,
+            valid: formState.inputs.username.isValid                        
         },
         { 
             title: 'Step 2', 
@@ -88,7 +94,8 @@ const SponsorRequest = () => {
                     id="roles"
                     formUpdateHandler={formUpdateHandler}
                     value={formState.inputs.roles}/>,
-            image: <img src={formImage1} alt="formImage1" className="response-field-image" />
+            image: <img src={formImage1} alt="formImage1" className="response-field-image" />,
+            valid: formState.inputs.roles.isValid
         },
         { 
             title: 'Step 3', 
@@ -97,7 +104,8 @@ const SponsorRequest = () => {
                 id="industries"
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.industries}/>,
-            image: <img src={formImage2} alt="formImage2" className="response-field-image" /> 
+            image: <img src={formImage2} alt="formImage2" className="response-field-image" />,
+            valid: formState.inputs.industries.isValid
         },
         { 
             title: 'Step 4', 
@@ -106,7 +114,8 @@ const SponsorRequest = () => {
                 id="headCounts"
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.headCounts}/>,
-            image: <img src={formImage3} alt="formImage3" className="response-field-image" /> 
+            image: <img src={formImage3} alt="formImage3" className="response-field-image" />,
+            valid: formState.inputs.headCounts.isValid 
         },
         { 
             title: 'Step 5', 
@@ -115,7 +124,8 @@ const SponsorRequest = () => {
                 id="regions"
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.regions}/>,
-            image: <img src={formImage4} alt="formImage4" className="response-field-image" />
+            image: <img src={formImage4} alt="formImage4" className="response-field-image" />,
+            valid: formState.inputs.regions.isValid
         },
         { 
             title: 'Step 6', 
@@ -124,7 +134,8 @@ const SponsorRequest = () => {
                 id="users"
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs}/>,
-            image: <img src={formImage5} alt="formImage5" className="response-field-image" />
+            image: <img src={formImage5} alt="formImage5" className="response-field-image" />,
+            valid: formState.inputs.users.isValid
         },
         { 
             title: 'Step 7', 
@@ -133,7 +144,8 @@ const SponsorRequest = () => {
                 id="dates"
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.dates}/>,
-            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
+            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>,
+            valid: formState.inputs.dates.isValid
         },
         { 
             title: 'Step 8', 
@@ -142,7 +154,8 @@ const SponsorRequest = () => {
                 id="topic"
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.topic}/>,
-            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
+            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>,
+            valid: formState.inputs.topic.isValid
         },
         { 
             title: 'Step 9', 
@@ -151,7 +164,8 @@ const SponsorRequest = () => {
                 id="host"
                 formUpdateHandler={formUpdateHandler}
                 value={formState.inputs.host}/>,
-            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>
+            image: <img src={formImage6} alt="formImage6" className="response-field-image"/>,
+            valid: formState.inputs.host.isValid
         },
         { 
             title: 'Step 10', 
@@ -237,12 +251,13 @@ const SponsorRequest = () => {
                         </Row>
 
                         <div className="response-action">
-                            {current < steps.length - 2 && user && (
+                            {current < steps.length - 2 && user && steps[current].valid && (
                                 <Button type="primary" onClick={() => next()}>
-                                    Next
+                                {console.log('are we valid: ' ,steps[current].valid)}
+                                Next
                                 </Button>
                             )}
-                            {process.env.REACT_APP_BACKEND_URL === 'http://localhost:5000/api' && current < steps.length - 2 && (
+                            {process.env.REACT_APP_BACKEND_URL === 'http://localhost:5000/api' && current < steps.length - 2 &&  steps[current].valid && (
                                 <Button type="primary" onClick={() => next()}>
                                     Next
                                 </Button>
