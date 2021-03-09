@@ -43,6 +43,7 @@ const SponsorTargetUsersList = props => {
                     body: JSON.stringify({
                         jobTitles  : searchParams.roles.value,
                         industries : searchParams.industries.value,
+                        headCounts : searchParams.headCounts.value
                     })
                 });
 
