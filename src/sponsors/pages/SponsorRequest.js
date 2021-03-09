@@ -2,7 +2,7 @@ import React, { useState, useReducer, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { CheckCircleTwoTone } from '@ant-design/icons';
+import { CheckCircleTwoTone, LeftSquareOutlined } from '@ant-design/icons';
 
 import { Form, Steps, Button, message, Row, Col } from 'antd';
 
@@ -247,6 +247,11 @@ const SponsorRequest = () => {
                             <img src={logo} alt="Logo" className="logo"/>
                         </Row>
                         <Row className="response-field">
+                            {current > 0 && !(current === 6 || current === 7) && (
+                                <Button type="link" onClick={() => prev()} className="previous-button">
+                                    <LeftSquareOutlined /> Previous
+                                </Button>
+                            )} 
                             {steps[current].content}
                         </Row>
 
@@ -261,12 +266,7 @@ const SponsorRequest = () => {
                                 <Button type="primary" onClick={() => next()}>
                                     Next
                                 </Button>
-                            )}
-                            {current > 0 && !(current === 6 || current === 7) && (
-                                <Button type="primary" onClick={() => prev()}>
-                                    Previous
-                                </Button>
-                            )}                
+                            )}             
                             {current === steps.length - 2 && (
                                 <Button className="response-submit" type="primary" htmlType="submit" onClick={() => confirmationHandler()}>
                                     Submit Application
